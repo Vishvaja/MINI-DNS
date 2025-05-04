@@ -1428,3 +1428,89 @@ WHERE dns_records.hostname = $1::VARCHAR
 FROM dns_records
 2025-05-04 20:36:32,836 - INFO - [cached since 120.1s ago] ()
 2025-05-04 20:36:32,839 - INFO - COMMIT
+2025-05-04 20:37:32,844 - INFO - BEGIN (implicit)
+2025-05-04 20:37:32,845 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:37:32,847 - INFO - [cached since 180.1s ago] ()
+2025-05-04 20:37:32,851 - INFO - COMMIT
+2025-05-04 20:38:32,858 - INFO - BEGIN (implicit)
+2025-05-04 20:38:32,859 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:38:32,861 - INFO - [cached since 240.1s ago] ()
+2025-05-04 20:38:32,864 - INFO - COMMIT
+2025-05-04 20:39:32,867 - INFO - BEGIN (implicit)
+2025-05-04 20:39:32,868 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:39:32,869 - INFO - [cached since 300.1s ago] ()
+2025-05-04 20:39:32,873 - INFO - COMMIT
+2025-05-04 20:40:32,876 - INFO - BEGIN (implicit)
+2025-05-04 20:40:32,878 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:40:32,885 - INFO - [cached since 360.1s ago] ()
+2025-05-04 20:40:32,892 - INFO - Deleting expired record: example.com
+2025-05-04 20:40:32,898 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:40:32,899 - INFO - [generated in 0.00156s] ('example.com',)
+2025-05-04 20:40:32,908 - INFO - Deleting expired record: duplicate.com
+2025-05-04 20:40:32,909 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:40:32,910 - INFO - [cached since 0.01288s ago] ('duplicate.com',)
+2025-05-04 20:40:32,915 - INFO - Deleting expired record: mail.com
+2025-05-04 20:40:32,917 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:40:32,918 - INFO - [cached since 0.02066s ago] ('mail.com',)
+2025-05-04 20:40:32,920 - INFO - Deleting expired record: txtentry.com
+2025-05-04 20:40:32,922 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:40:32,925 - INFO - [cached since 0.02719s ago] ('txtentry.com',)
+2025-05-04 20:40:32,927 - INFO - Deleting expired record: alias.com
+2025-05-04 20:40:32,931 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:40:32,934 - INFO - [cached since 0.03533s ago] ('alias.com',)
+2025-05-04 20:40:32,941 - INFO - COMMIT
+2025-05-04 20:41:32,969 - INFO - BEGIN (implicit)
+2025-05-04 20:41:32,970 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:41:32,971 - INFO - [cached since 420.2s ago] ()
+2025-05-04 20:41:32,974 - INFO - Deleting expired record: bulk-0jo34h.com
+2025-05-04 20:41:32,978 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:32,979 - INFO - [cached since 60.07s ago] ('bulk-0jo34h.com',)
+2025-05-04 20:41:32,982 - INFO - Deleting expired record: bulk-r0p2gb.com
+2025-05-04 20:41:32,985 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:32,986 - INFO - [cached since 60.07s ago] ('bulk-r0p2gb.com',)
+2025-05-04 20:41:32,988 - INFO - Deleting expired record: list-a-9r9g0t.com
+2025-05-04 20:41:32,992 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:32,994 - INFO - [cached since 60.08s ago] ('list-a-9r9g0t.com',)
+2025-05-04 20:41:32,997 - INFO - Deleting expired record: list-txt-ghmg0y.com
+2025-05-04 20:41:32,998 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:33,000 - INFO - [cached since 60.09s ago] ('list-txt-ghmg0y.com',)
+2025-05-04 20:41:33,016 - INFO - Deleting expired record: direct-jzt0tp.com
+2025-05-04 20:41:33,019 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:33,020 - INFO - [cached since 60.11s ago] ('direct-jzt0tp.com',)
+2025-05-04 20:41:33,026 - INFO - Deleting expired record: alias1-13x42h.com
+2025-05-04 20:41:33,028 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:33,030 - INFO - [cached since 60.12s ago] ('alias1-13x42h.com',)
+2025-05-04 20:41:33,033 - INFO - Deleting expired record: alias2-qp6pxo.com
+2025-05-04 20:41:33,038 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:41:33,039 - INFO - [cached since 60.13s ago] ('alias2-qp6pxo.com',)
+2025-05-04 20:41:33,041 - INFO - COMMIT
+2025-05-04 20:42:33,049 - INFO - BEGIN (implicit)
+2025-05-04 20:42:33,050 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:42:33,052 - INFO - [cached since 480.3s ago] ()
+2025-05-04 20:42:33,054 - INFO - COMMIT
+2025-05-04 20:43:33,056 - INFO - BEGIN (implicit)
+2025-05-04 20:43:33,058 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:43:33,060 - INFO - [cached since 540.3s ago] ()
+2025-05-04 20:43:33,063 - INFO - COMMIT
+2025-05-04 20:44:33,069 - INFO - BEGIN (implicit)
+2025-05-04 20:44:33,070 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:44:33,071 - INFO - [cached since 600.3s ago] ()
+2025-05-04 20:44:33,075 - INFO - COMMIT
+2025-05-04 20:45:33,081 - INFO - BEGIN (implicit)
+2025-05-04 20:45:33,082 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:45:33,084 - INFO - [cached since 660.3s ago] ()
+2025-05-04 20:45:33,090 - INFO - COMMIT
+2025-05-04 20:46:33,094 - INFO - BEGIN (implicit)
+2025-05-04 20:46:33,095 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:46:33,096 - INFO - [cached since 720.3s ago] ()
+2025-05-04 20:46:33,099 - INFO - COMMIT
