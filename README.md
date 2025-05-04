@@ -205,6 +205,8 @@ hence some examples are as follows:
 Hence while adding an AAAA or A record don't forget the [] in value column.
 Also while deleting you don't have to give [] just a string of one IP address works, because for A/AAAA records one record can have multiple IP address hence if you give one Ip address, it deletes just that one from the bulk list if it has more than one.
 
+###Note
+Have added steps for payload and DB Check plus tested file in docs/
 ### Additional Features
 Bulk Import/Export: Allows importing and exporting DNS records in bulk.Just ensure you mention action as "delete" for deleting a record:
 like this:
