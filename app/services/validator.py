@@ -1,29 +1,8 @@
 from app.models.record_db import RecordType, DNSRecord
-from app.models.record_schema import DNSRecordInput
 from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
-from datetime import datetime, timedelta
-from app.core.errors import ErrorCode, raise_error
-
-
-if not is_regex_hostname(hostname):
-    raise_error(ErrorCode.INVALID_HOSTNAME, status_code=400)
-
-def validate_dns_record_type_conflict(new_type: RecordType, existing: List[DNSRecord]):
-    if new_type == RecordType.A:
-        for rec in existing:
-            if rec.type == RecordType.CNAME:
-                raise HTTPException(status_code=409, detail="CNAME already exists for this hostname")
-    elif new_type == RecordType.CNAME:
-        for rec in existing:
-            if rec.type in [RecordType.A, RecordType.AAAA]:
-                raise HTTPException(status_code=409, detail="A/AAAA records already exist for this hostname")
-            if rec.type == RecordType.CNAME:
-                raise HTTPException(status_code=409, detail="Only one CNAME record allowed per hostname")
-
-
 
 async def check_cname_loop(start: str, target: str, db: AsyncSession, max_depth: int = 10):
     visited = set()

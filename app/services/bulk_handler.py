@@ -1,24 +1,17 @@
-# app/services/bulk_handler.py
-
-from fastapi import UploadFile, HTTPException
+from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from datetime import datetime
 import json
-from sqlalchemy.exc import IntegrityError
 import logging
 from app.models.record_db import DNSRecord, RecordType
 from app.models.record_schema import DNSRecordInput
-from app.storage import record_repository as repo
 from pydantic import ValidationError
-
-from app.utils.hostname_utils import is_regex_hostname
+from app.services.CRUD import validate_hostname,insert_new_record,delete_record_by_value
+from app.services.CRUD import validate_hostname,fetch_by_hostname,insert_new_record,delete_record_by_value
 from app.utils.record_utils import (
-    validate_dns_record_type_conflict,
-    has_cname_cycle,
+    check_for_duplicate_records,
+    has_cname_cycle
 )
 from app.core.errors import ErrorCode, raise_error
-from app.services.CRUD import validate_hostname,insert_new_record,delete_record_by_value
-
 
 logger = logging.getLogger(__name__)
 
@@ -39,24 +32,19 @@ async def export_dns_records(db: AsyncSession):
 
 async def bulk_import(file, db):
     try:
+        # Read and clean file contents
         contents = await file.read()
-
-        # Log raw contents to inspect the input
         logger.info(f"Raw file contents: {contents[:200]}...")  # Log first 200 chars
-
-        # Clean up the content by removing extra newlines and carriage returns
         cleaned_contents = contents.decode("utf-8").replace("\r\n", "\n").strip()
-
-        # Log cleaned contents for further inspection
         logger.info(f"Cleaned file contents: {cleaned_contents[:500]}...")
 
+        # Parse the cleaned contents to get the list of records
         try:
             raw_records = json.loads(cleaned_contents)
         except json.JSONDecodeError as e:
             logger.error(f"JSON decode error: {str(e)}")
             raise HTTPException(status_code=400, detail="Invalid JSON format")
 
-        # Ensure the parsed JSON is a list of records
         if not isinstance(raw_records, list):
             raise HTTPException(status_code=400, detail="JSON must be a list of DNS records")
 
@@ -65,53 +53,48 @@ async def bulk_import(file, db):
         skipped = 0
         errors = []
 
-        # Step 2: Iterate through each record and process it
+        # Iterate through each record and process it
         for idx, item in enumerate(raw_records, start=1):
             try:
-                # Validate the hostname
-                hostname = item.get("hostname", "").lower()
+                logger.info(f"Processing record at index {idx}: {item}")
+
+                # Validate the hostname - here since json processing must be careful
+                hostname = item.get("hostname").lower()
+                logger.info("Hostname %s",hostname)
                 existing_records = await validate_hostname(hostname, db)
-                print("Existing record",existing_records)
-                # If the record type is delete, use the delete logic
+                logger.info(f"Existing records for {hostname}: {existing_records}")
+
+                # Handle delete operation for action delete
                 if item.get("action") == "delete":
                     record_type = item.get("type")
                     record_value = item.get("value")
-                    # Ensure type is a valid RecordType
                     if record_type not in [e.value for e in RecordType]:
                         raise HTTPException(status_code=400, detail="Invalid record type for delete operation")
-                    # Call delete function
                     result = await delete_record_by_value(hostname, record_type, record_value, db)
                     skipped += 1
                     continue
-                print("Moving On")
-                print("Item",item)
-                # Otherwise, insert the record (reuse existing logic)
-                # Check if item has the required fields before validation
-                try:
-                    required_fields = ["hostname", "type", "value"]
-                    missing_fields = [field for field in required_fields if field not in item]
-                    if missing_fields:
-                        raise HTTPException(status_code=400, detail=f"Missing fields: {', '.join(missing_fields)}")
-                    print("All items present")
-                    # Perform the validation using Pydantic
-                    record = DNSRecordInput.parse_obj(item)  # Validate the record
-                    logger.info(f"Record validated successfully: {record}")
-                    await insert_new_record(record, db)  # Insert the validated record
-                    success += 1
-                except ValidationError as e:
-                # Log and store detailed validation error
-                    logger.error(f"Validation error for record at index {idx}: {e.errors()}")
-                    errors.append({"index": idx, "error": f"Validation error: {e.errors()}"})
-                    skipped += 1
-                except HTTPException as e:
-                    errors.append({"index": idx, "error": e.detail})
-                    skipped += 1
-                except Exception as e:
-                    errors.append({"index": idx, "error": str(e)})
-                    skipped += 1
-                
+                record = DNSRecord()
+                record.hostname = item.get("hostname")
+                record.type = item.get("type")
+                record.value = item.get("value")
+                record.ttl_seconds = item.get("ttl_seconds")
+                #Same logic as addition
+                existing_records = await validate_hostname(hostname, db)
+
+                if existing_records:
+                    await check_for_duplicate_records(existing_records, record)
+
+                if record.type == RecordType.CNAME.value:
+                    logger.info(f"Checking CNAME cycle for {record.hostname}")
+                    has_cycle = await has_cname_cycle(record.hostname, record.value.strip('"').lower(), db)
+                    if has_cycle:
+                        logger.error(f"CNAME loop detected for {record.hostname}")
+                        raise_error(ErrorCode.CNAME_LOOP, status_code=400)
+
+                new_record = await insert_new_record(record, db)
+                logger.info(f"New Record inserted {new_record.hostname}")
+                success += 1
             except ValidationError as e:
-                # Log and store detailed validation error
                 logger.error(f"Validation error for record at index {idx}: {e.errors()}")
                 errors.append({"index": idx, "error": f"Validation error: {e.errors()}"})
                 skipped += 1
@@ -122,10 +105,13 @@ async def bulk_import(file, db):
                 errors.append({"index": idx, "error": str(e)})
                 skipped += 1
 
-        # Step 3: Commit the changes to the database
+            except Exception as e:
+                logger.error(f"Error processing record at index {idx}: {e}")
+                errors.append({"index": idx, "error": str(e)})
+                skipped += 1
+
         await db.commit()
 
-        # Step 4: Return a summary of the bulk import operation
         return {
             "message": "Bulk import completed",
             "records_imported": success,

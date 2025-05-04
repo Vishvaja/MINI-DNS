@@ -1,18 +1,18 @@
 import logging
 
-# Set up logging configuration at the start of the app
+# Setting up logging
 logging.basicConfig(
-    level=logging.DEBUG,  # Capture DEBUG and above (INFO, WARNING, ERROR, CRITICAL)
+    level=logging.DEBUG,  
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("app.log"),  # Log to a file
-        logging.StreamHandler()  # Log to the console (stdout)
+        logging.FileHandler("main-app.log"), 
+        logging.StreamHandler()  
     ]
 )
 
 logger = logging.getLogger(__name__)
 
-# Example usage
+# Checking logging activities:
 logger.debug("This is a debug message")
 logger.info("This is an info message")
 logger.warning("This is a warning message")

@@ -1,10 +1,7 @@
 from pydantic import BaseModel, Field, IPvAnyAddress, validator
 from typing import List, Union, Literal
-from datetime import datetime
 from typing import Annotated
-import re
 from app.utils.hostname_utils import validate_hostname_or_raise,validate_non_empty_strings
-# Utility validation functions
 
 class MXValue(BaseModel):
     priority: int
@@ -14,7 +11,7 @@ class MXValue(BaseModel):
     def validate_mx_host(cls, v):
         return validate_hostname_or_raise(v, "MX host")
 
-# Record Schemas
+# Record schemas classes
 class ARecordSchema(BaseModel):
     hostname: str
     type: Literal["A"]
@@ -64,9 +61,4 @@ DNSRecordInput = Annotated[
     Field(discriminator="type")
 ]
 
-class DNSRecordResponse(BaseModel):
-    hostname: str
-    type: str
-    value: Union[List[str], str, dict]
-    timestamp_created: datetime
-    ttl_seconds: int
+

@@ -1,14 +1,11 @@
-# app/utils/validation_utils.py
 import re
-from typing import List, Union, Literal
+from typing import List
 import logging
 
 logger = logging.getLogger(__name__)
 
 def is_regex_hostname(hostname: str) -> bool:
-    """
-    Validates full hostnames including subdomains (e.g., abc.z.com, mail.example.co.uk)
-    """
+    
     if len(hostname) > 253:
         return False
 

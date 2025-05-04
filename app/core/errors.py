@@ -1,5 +1,3 @@
-# app/core/errors.py
-
 from fastapi import HTTPException
 
 class ErrorCode:

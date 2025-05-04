@@ -1,4 +1,3 @@
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import delete, select
 from datetime import datetime, timedelta
 from app.models.record_db import DNSRecord

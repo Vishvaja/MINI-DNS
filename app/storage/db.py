@@ -14,13 +14,12 @@ AsyncSessionLocal = sessionmaker(
     expire_on_commit=False,
 )
 
-# ✅ Dependency function for FastAPI routes
 async def get_db() -> AsyncSession:
     async with AsyncSessionLocal() as session:
         yield session
 
-# ✅ Initialize DB (run this at app startup)
+#Initialize DB 
 async def init_db():
-    import app.models.record_db  # Ensure models are imported so metadata is available
+    import app.models.record_db 
     async with engine.begin() as conn:
         await conn.run_sync(app.models.record_db.Base.metadata.create_all)

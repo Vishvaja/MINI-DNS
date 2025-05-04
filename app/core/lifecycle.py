@@ -1,8 +1,7 @@
-# core/lifecycle.py
 from fastapi import FastAPI
 from app.core.logger import logger
 
-# Placeholder for background setup/cleanup tasks
+#This is for loging the startup tasks
 def setup_startup_tasks(app: FastAPI):
     @app.on_event("startup")
     async def startup_event():

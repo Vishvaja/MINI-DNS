@@ -1,0 +1,1430 @@
+2025-05-04 20:12:25,595 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:12:25,639 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 20:12:25,667 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 20:12:25,679 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:12:25,689 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 20:12:25,691 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 20:12:25,710 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:12:25,713 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:12:25,736 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 20:12:25,751 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:12:25,801 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 20:12:25,802 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:12:25,861 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 20:12:25,892 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:12:25,918 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:12:25,925 - DEBUG - Calling on_end with no data
+2025-05-04 20:12:25,943 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 20:12:25,963 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 20:12:25,974 - INFO - Processing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:12:25,983 - INFO - BEGIN (implicit)
+2025-05-04 20:12:25,998 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,000 - INFO - [cached since 98.94s ago] ('example.com',)
+2025-05-04 20:12:26,009 - INFO - Existing records for example.com: []
+2025-05-04 20:12:26,036 - INFO - Validating and parsing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,045 - ERROR - Unexpected error during record insertion at index 1: parse_obj
+2025-05-04 20:12:26,061 - INFO - Processing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:12:26,065 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,082 - INFO - [cached since 99.02s ago] ('example2.com',)
+2025-05-04 20:12:26,112 - INFO - Existing records for example2.com: []
+2025-05-04 20:12:26,114 - INFO - Validating and parsing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:12:26,115 - ERROR - Unexpected error during record insertion at index 2: parse_obj
+2025-05-04 20:12:26,129 - INFO - Processing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,130 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,134 - INFO - [cached since 99.07s ago] ('invalidhostname',)
+2025-05-04 20:12:26,141 - INFO - Existing records for invalidhostname: []
+2025-05-04 20:12:26,142 - INFO - Validating and parsing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,143 - ERROR - Unexpected error during record insertion at index 3: parse_obj
+2025-05-04 20:12:26,145 - INFO - Processing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:12:26,147 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,148 - INFO - [cached since 99.09s ago] ('example3.com',)
+2025-05-04 20:12:26,152 - INFO - Existing records for example3.com: []
+2025-05-04 20:12:26,152 - INFO - Validating and parsing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:12:26,155 - ERROR - Unexpected error during record insertion at index 4: parse_obj
+2025-05-04 20:12:26,157 - INFO - Processing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,167 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,168 - INFO - [cached since 99.11s ago] ('example4.com',)
+2025-05-04 20:12:26,176 - INFO - Existing records for example4.com: []
+2025-05-04 20:12:26,185 - INFO - Validating and parsing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,196 - ERROR - Unexpected error during record insertion at index 5: parse_obj
+2025-05-04 20:12:26,199 - INFO - Processing record at index 6: {'action': 'delete', 'hostname': 'example.com', 'type': 'A', 'value': '192.168.1.1'}
+2025-05-04 20:12:26,203 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,206 - INFO - [cached since 99.14s ago] ('example.com',)
+2025-05-04 20:12:26,209 - INFO - Existing records for example.com: []
+2025-05-04 20:12:26,209 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 20:12:26,216 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:12:26,217 - INFO - [cached since 99.13s ago] ('example.com', 'A')
+2025-05-04 20:12:26,219 - ERROR - No records found for example.com with type A
+2025-05-04 20:12:26,223 - ERROR - Error processing record at index 6: 404: Record not found for this hostname
+2025-05-04 20:12:26,224 - INFO - Processing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,227 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,229 - INFO - [cached since 99.17s ago] ('example5.com',)
+2025-05-04 20:12:26,241 - INFO - Existing records for example5.com: []
+2025-05-04 20:12:26,247 - INFO - Validating and parsing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:12:26,257 - ERROR - Unexpected error during record insertion at index 7: parse_obj
+2025-05-04 20:12:26,258 - INFO - Processing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:12:26,263 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:12:26,265 - INFO - [cached since 99.2s ago] ('example6.com',)
+2025-05-04 20:12:26,266 - INFO - Existing records for example6.com: []
+2025-05-04 20:12:26,267 - INFO - Validating and parsing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:12:26,268 - ERROR - Unexpected error during record insertion at index 8: parse_obj
+2025-05-04 20:12:26,273 - INFO - COMMIT
+2025-05-04 20:12:35,126 - INFO - BEGIN (implicit)
+2025-05-04 20:12:35,127 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:12:35,130 - INFO - [cached since 180.1s ago] ()
+2025-05-04 20:12:35,135 - INFO - COMMIT
+2025-05-04 20:13:35,151 - INFO - BEGIN (implicit)
+2025-05-04 20:13:35,153 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:13:35,154 - INFO - [cached since 240.1s ago] ()
+2025-05-04 20:13:35,157 - INFO - COMMIT
+2025-05-04 20:14:35,151 - INFO - BEGIN (implicit)
+2025-05-04 20:14:35,153 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:14:35,156 - INFO - [cached since 300.1s ago] ()
+2025-05-04 20:14:35,159 - INFO - COMMIT
+2025-05-04 20:15:15,724 - DEBUG - This is a debug message
+2025-05-04 20:15:15,725 - INFO - This is an info message
+2025-05-04 20:15:15,727 - WARNING - This is a warning message
+2025-05-04 20:15:15,728 - ERROR - This is an error message
+2025-05-04 20:15:15,729 - CRITICAL - This is a critical message
+2025-05-04 20:15:16,099 - INFO - select pg_catalog.version()
+2025-05-04 20:15:16,103 - INFO - [raw sql] ()
+2025-05-04 20:15:16,111 - INFO - select current_schema()
+2025-05-04 20:15:16,113 - INFO - [raw sql] ()
+2025-05-04 20:15:16,117 - INFO - show standard_conforming_strings
+2025-05-04 20:15:16,118 - INFO - [raw sql] ()
+2025-05-04 20:15:16,129 - INFO - BEGIN (implicit)
+2025-05-04 20:15:16,146 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:15:16,148 - INFO - [generated in 0.00203s] ()
+2025-05-04 20:15:16,267 - INFO - COMMIT
+2025-05-04 20:15:31,846 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:15:31,849 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 20:15:31,854 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 20:15:31,856 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:15:31,858 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 20:15:31,859 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 20:15:31,861 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:15:31,863 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:15:31,866 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 20:15:31,867 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:15:31,872 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 20:15:31,874 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:15:31,875 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 20:15:31,878 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:15:31,879 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:15:31,880 - DEBUG - Calling on_end with no data
+2025-05-04 20:15:31,882 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 20:15:31,891 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 20:15:31,892 - INFO - Processing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:15:31,895 - INFO - BEGIN (implicit)
+2025-05-04 20:15:31,900 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:31,928 - INFO - [generated in 0.02828s] ('example.com',)
+2025-05-04 20:15:31,933 - INFO - Existing records for example.com: []
+2025-05-04 20:15:31,938 - INFO - Validating and parsing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:15:31,939 - INFO - Processing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:15:31,941 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:31,942 - INFO - [cached since 0.0426s ago] ('example2.com',)
+2025-05-04 20:15:31,944 - INFO - Existing records for example2.com: []
+2025-05-04 20:15:31,945 - INFO - Validating and parsing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:15:31,946 - INFO - Processing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:15:31,949 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:31,951 - INFO - [cached since 0.05138s ago] ('invalidhostname',)
+2025-05-04 20:15:31,958 - INFO - Existing records for invalidhostname: []
+2025-05-04 20:15:31,959 - INFO - Validating and parsing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:15:31,960 - INFO - Processing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:15:31,962 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:31,963 - INFO - [cached since 0.06384s ago] ('example3.com',)
+2025-05-04 20:15:31,972 - INFO - Existing records for example3.com: []
+2025-05-04 20:15:31,973 - INFO - Validating and parsing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:15:31,975 - INFO - Processing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:15:31,976 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:31,978 - INFO - [cached since 0.07875s ago] ('example4.com',)
+2025-05-04 20:15:31,981 - INFO - Existing records for example4.com: []
+2025-05-04 20:15:31,982 - INFO - Validating and parsing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:15:31,983 - INFO - Processing record at index 6: {'action': 'delete', 'hostname': 'example.com', 'type': 'A', 'value': '192.168.1.1'}
+2025-05-04 20:15:31,987 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:31,988 - INFO - [cached since 0.089s ago] ('example.com',)
+2025-05-04 20:15:31,992 - INFO - Existing records for example.com: []
+2025-05-04 20:15:31,992 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 20:15:32,005 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:15:32,006 - INFO - [generated in 0.00154s] ('example.com', 'A')
+2025-05-04 20:15:32,010 - ERROR - No records found for example.com with type A
+2025-05-04 20:15:32,011 - ERROR - Error processing record at index 6: 404: Record not found for this hostname
+2025-05-04 20:15:32,012 - INFO - Processing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:15:32,021 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:32,023 - INFO - [cached since 0.1238s ago] ('example5.com',)
+2025-05-04 20:15:32,026 - INFO - Existing records for example5.com: []
+2025-05-04 20:15:32,027 - INFO - Validating and parsing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:15:32,028 - INFO - Processing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:15:32,030 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:15:32,035 - INFO - [cached since 0.1355s ago] ('example6.com',)
+2025-05-04 20:15:32,038 - INFO - Existing records for example6.com: []
+2025-05-04 20:15:32,039 - INFO - Validating and parsing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:15:32,041 - INFO - COMMIT
+2025-05-04 20:16:16,274 - INFO - BEGIN (implicit)
+2025-05-04 20:16:16,275 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:16:16,276 - INFO - [cached since 60.13s ago] ()
+2025-05-04 20:16:16,280 - INFO - COMMIT
+2025-05-04 20:17:10,501 - DEBUG - This is a debug message
+2025-05-04 20:17:10,502 - INFO - This is an info message
+2025-05-04 20:17:10,503 - WARNING - This is a warning message
+2025-05-04 20:17:10,504 - ERROR - This is an error message
+2025-05-04 20:17:10,505 - CRITICAL - This is a critical message
+2025-05-04 20:17:10,706 - INFO - select pg_catalog.version()
+2025-05-04 20:17:10,709 - INFO - [raw sql] ()
+2025-05-04 20:17:10,717 - INFO - select current_schema()
+2025-05-04 20:17:10,718 - INFO - [raw sql] ()
+2025-05-04 20:17:10,722 - INFO - show standard_conforming_strings
+2025-05-04 20:17:10,732 - INFO - [raw sql] ()
+2025-05-04 20:17:10,736 - INFO - BEGIN (implicit)
+2025-05-04 20:17:10,751 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:17:10,753 - INFO - [generated in 0.00177s] ()
+2025-05-04 20:17:10,790 - INFO - COMMIT
+2025-05-04 20:17:32,105 - DEBUG - This is a debug message
+2025-05-04 20:17:32,105 - INFO - This is an info message
+2025-05-04 20:17:32,106 - WARNING - This is a warning message
+2025-05-04 20:17:32,107 - ERROR - This is an error message
+2025-05-04 20:17:32,108 - CRITICAL - This is a critical message
+2025-05-04 20:17:32,267 - INFO - select pg_catalog.version()
+2025-05-04 20:17:32,268 - INFO - [raw sql] ()
+2025-05-04 20:17:32,272 - INFO - select current_schema()
+2025-05-04 20:17:32,274 - INFO - [raw sql] ()
+2025-05-04 20:17:32,279 - INFO - show standard_conforming_strings
+2025-05-04 20:17:32,282 - INFO - [raw sql] ()
+2025-05-04 20:17:32,288 - INFO - BEGIN (implicit)
+2025-05-04 20:17:32,301 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:17:32,302 - INFO - [generated in 0.00104s] ()
+2025-05-04 20:17:32,329 - INFO - COMMIT
+2025-05-04 20:18:32,331 - INFO - BEGIN (implicit)
+2025-05-04 20:18:32,332 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:18:32,333 - INFO - [cached since 60.03s ago] ()
+2025-05-04 20:18:32,336 - INFO - COMMIT
+2025-05-04 20:19:32,341 - INFO - BEGIN (implicit)
+2025-05-04 20:19:32,342 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:19:32,344 - INFO - [cached since 120s ago] ()
+2025-05-04 20:19:32,347 - INFO - COMMIT
+2025-05-04 20:20:32,352 - INFO - BEGIN (implicit)
+2025-05-04 20:20:32,354 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:20:32,355 - INFO - [cached since 180.1s ago] ()
+2025-05-04 20:20:32,358 - INFO - COMMIT
+2025-05-04 20:21:32,364 - INFO - BEGIN (implicit)
+2025-05-04 20:21:32,366 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:21:32,369 - INFO - [cached since 240.1s ago] ()
+2025-05-04 20:21:32,373 - INFO - COMMIT
+2025-05-04 20:22:11,203 - DEBUG - This is a debug message
+2025-05-04 20:22:11,204 - INFO - This is an info message
+2025-05-04 20:22:11,205 - WARNING - This is a warning message
+2025-05-04 20:22:11,206 - ERROR - This is an error message
+2025-05-04 20:22:11,208 - CRITICAL - This is a critical message
+2025-05-04 20:22:11,278 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:22:11,279 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 20:22:11,280 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 20:22:11,281 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:22:11,282 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 20:22:11,283 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 20:22:11,285 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:22:11,286 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:22:11,293 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 20:22:11,294 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:11,295 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 20:22:11,296 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:11,298 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 20:22:11,299 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:11,300 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:22:11,301 - DEBUG - Calling on_end with no data
+2025-05-04 20:22:11,303 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 20:22:11,308 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 20:22:11,310 - INFO - Processing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:22:11,312 - INFO - Processing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:22:11,316 - INFO - Processing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:22:11,327 - INFO - Processing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:22:11,328 - INFO - Processing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:22:11,329 - INFO - Processing record at index 6: {'action': 'delete', 'hostname': 'example.com', 'type': 'A', 'value': '192.168.1.1'}
+2025-05-04 20:22:11,329 - INFO - Processing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:22:11,330 - INFO - Processing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:22:11,453 - INFO - select pg_catalog.version()
+2025-05-04 20:22:11,456 - INFO - [raw sql] ()
+2025-05-04 20:22:11,461 - INFO - select current_schema()
+2025-05-04 20:22:11,463 - INFO - [raw sql] ()
+2025-05-04 20:22:11,472 - INFO - show standard_conforming_strings
+2025-05-04 20:22:11,474 - INFO - [raw sql] ()
+2025-05-04 20:22:11,477 - INFO - BEGIN (implicit)
+2025-05-04 20:22:11,502 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:22:11,508 - INFO - [generated in 0.00620s] ()
+2025-05-04 20:22:11,573 - INFO - COMMIT
+2025-05-04 20:22:19,631 - DEBUG - This is a debug message
+2025-05-04 20:22:19,631 - INFO - This is an info message
+2025-05-04 20:22:19,632 - WARNING - This is a warning message
+2025-05-04 20:22:19,633 - ERROR - This is an error message
+2025-05-04 20:22:19,634 - CRITICAL - This is a critical message
+2025-05-04 20:22:19,800 - INFO - select pg_catalog.version()
+2025-05-04 20:22:19,801 - INFO - [raw sql] ()
+2025-05-04 20:22:19,808 - INFO - select current_schema()
+2025-05-04 20:22:19,808 - INFO - [raw sql] ()
+2025-05-04 20:22:19,812 - INFO - show standard_conforming_strings
+2025-05-04 20:22:19,814 - INFO - [raw sql] ()
+2025-05-04 20:22:19,818 - INFO - BEGIN (implicit)
+2025-05-04 20:22:19,830 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:22:19,830 - INFO - [generated in 0.00074s] ()
+2025-05-04 20:22:19,861 - INFO - COMMIT
+2025-05-04 20:22:27,933 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:22:27,938 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 20:22:27,943 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 20:22:27,954 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:22:27,959 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 20:22:27,960 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 20:22:27,968 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:22:27,976 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:22:27,980 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 20:22:27,987 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:27,987 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 20:22:27,988 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:27,989 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 20:22:27,991 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:27,996 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:22:28,006 - DEBUG - Calling on_end with no data
+2025-05-04 20:22:28,010 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 20:22:28,019 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 20:22:28,021 - INFO - Processing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:22:28,023 - INFO - Processing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:22:28,025 - INFO - Processing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:22:28,028 - INFO - Processing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:22:28,038 - INFO - Processing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:22:28,042 - INFO - Processing record at index 6: {'action': 'delete', 'hostname': 'example.com', 'type': 'A', 'value': '192.168.1.1'}
+2025-05-04 20:22:28,045 - INFO - Processing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:22:28,055 - INFO - Processing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:22:33,765 - DEBUG - This is a debug message
+2025-05-04 20:22:33,765 - INFO - This is an info message
+2025-05-04 20:22:33,766 - WARNING - This is a warning message
+2025-05-04 20:22:33,767 - ERROR - This is an error message
+2025-05-04 20:22:33,768 - CRITICAL - This is a critical message
+2025-05-04 20:22:33,836 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:22:33,838 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 20:22:33,840 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 20:22:33,841 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:22:33,842 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 20:22:33,843 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 20:22:33,846 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:22:33,848 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:22:33,850 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 20:22:33,852 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:33,853 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 20:22:33,855 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:33,857 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 20:22:33,858 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 20:22:33,859 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:22:33,860 - DEBUG - Calling on_end with no data
+2025-05-04 20:22:33,865 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 20:22:33,866 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 20:22:33,870 - INFO - Processing record at index 1: {'hostname': 'example.com', 'type': 'A', 'value': ['192.168.1.1'], 'ttl_seconds': 3600}
+2025-05-04 20:22:34,190 - INFO - select pg_catalog.version()
+2025-05-04 20:22:34,191 - INFO - [raw sql] ()
+2025-05-04 20:22:34,197 - INFO - select current_schema()
+2025-05-04 20:22:34,198 - INFO - [raw sql] ()
+2025-05-04 20:22:34,206 - INFO - show standard_conforming_strings
+2025-05-04 20:22:34,207 - INFO - [raw sql] ()
+2025-05-04 20:22:34,213 - INFO - BEGIN (implicit)
+2025-05-04 20:22:34,230 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:22:34,231 - INFO - [generated in 0.00102s] ()
+2025-05-04 20:22:34,236 - INFO - BEGIN (implicit)
+2025-05-04 20:22:34,249 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,250 - INFO - [generated in 0.00153s] ('example.com',)
+2025-05-04 20:22:34,273 - INFO - COMMIT
+2025-05-04 20:22:34,284 - INFO - Existing records for example.com: []
+2025-05-04 20:22:34,290 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,291 - INFO - [cached since 0.0426s ago] ('example.com',)
+2025-05-04 20:22:34,298 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:34,301 - INFO - [generated in 0.00340s] ('example.com', 'A', '"[\\"192.168.1.1\\"]"', datetime.datetime(2025, 5, 4, 20, 22, 34, 294293), 3600)
+2025-05-04 20:22:34,310 - INFO - COMMIT
+2025-05-04 20:22:34,322 - INFO - Record added for example.com
+2025-05-04 20:22:34,323 - INFO - New Record inserted example.com
+2025-05-04 20:22:34,324 - INFO - Processing record at index 2: {'hostname': 'example2.com', 'type': 'CNAME', 'value': 'example.com', 'ttl_seconds': 3600}
+2025-05-04 20:22:34,353 - INFO - BEGIN (implicit)
+2025-05-04 20:22:34,356 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,358 - INFO - [cached since 0.1091s ago] ('example2.com',)
+2025-05-04 20:22:34,362 - INFO - Existing records for example2.com: []
+2025-05-04 20:22:34,377 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,379 - INFO - [cached since 0.1302s ago] ('example2.com',)
+2025-05-04 20:22:34,381 - INFO - Checking CNAME cycle for example2.com
+2025-05-04 20:22:34,384 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:22:34,386 - INFO - [generated in 0.00207s] ('example.com', 'CNAME')
+2025-05-04 20:22:34,393 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:34,400 - INFO - [cached since 0.1022s ago] ('example2.com', 'CNAME', '"\\"example.com\\""', datetime.datetime(2025, 5, 4, 20, 22, 34, 392216), 3600)
+2025-05-04 20:22:34,404 - INFO - COMMIT
+2025-05-04 20:22:34,456 - INFO - Record added for example2.com
+2025-05-04 20:22:34,493 - INFO - New Record inserted example2.com
+2025-05-04 20:22:34,551 - INFO - Processing record at index 3: {'hostname': 'invalidhostname', 'type': 'A', 'value': ['999.999.999.999'], 'ttl_seconds': 3600}
+2025-05-04 20:22:34,706 - INFO - BEGIN (implicit)
+2025-05-04 20:22:34,713 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,742 - INFO - [cached since 0.4939s ago] ('invalidhostname',)
+2025-05-04 20:22:34,756 - INFO - Existing records for invalidhostname: []
+2025-05-04 20:22:34,760 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,768 - INFO - [cached since 0.5195s ago] ('invalidhostname',)
+2025-05-04 20:22:34,774 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:34,776 - INFO - [cached since 0.4782s ago] ('invalidhostname', 'A', '"[\\"999.999.999.999\\"]"', datetime.datetime(2025, 5, 4, 20, 22, 34, 774006), 3600)
+2025-05-04 20:22:34,780 - INFO - COMMIT
+2025-05-04 20:22:34,800 - INFO - Record added for invalidhostname
+2025-05-04 20:22:34,801 - INFO - New Record inserted invalidhostname
+2025-05-04 20:22:34,802 - INFO - Processing record at index 4: {'hostname': 'example3.com', 'type': 'MX', 'value': {'priority': 10, 'host': 'mail.example3.com'}, 'ttl_seconds': 3600}
+2025-05-04 20:22:34,837 - INFO - BEGIN (implicit)
+2025-05-04 20:22:34,838 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,841 - INFO - [cached since 0.593s ago] ('example3.com',)
+2025-05-04 20:22:34,845 - INFO - Existing records for example3.com: []
+2025-05-04 20:22:34,849 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,850 - INFO - [cached since 0.6014s ago] ('example3.com',)
+2025-05-04 20:22:34,853 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:34,857 - INFO - [cached since 0.5595s ago] ('example3.com', 'MX', '"\\"{\'priority\': 10, \'host\': \'mail.example3.com\'}\\""', datetime.datetime(2025, 5, 4, 20, 22, 34, 852978), 3600)
+2025-05-04 20:22:34,866 - INFO - COMMIT
+2025-05-04 20:22:34,885 - INFO - Record added for example3.com
+2025-05-04 20:22:34,885 - INFO - New Record inserted example3.com
+2025-05-04 20:22:34,886 - INFO - Processing record at index 5: {'hostname': 'example4.com', 'type': 'A', 'value': ['192.168.1.2'], 'ttl_seconds': 3600}
+2025-05-04 20:22:34,918 - INFO - BEGIN (implicit)
+2025-05-04 20:22:34,920 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,921 - INFO - [cached since 0.6726s ago] ('example4.com',)
+2025-05-04 20:22:34,928 - INFO - Existing records for example4.com: []
+2025-05-04 20:22:34,931 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:34,932 - INFO - [cached since 0.6839s ago] ('example4.com',)
+2025-05-04 20:22:34,942 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:34,948 - INFO - [cached since 0.65s ago] ('example4.com', 'A', '"[\\"192.168.1.2\\"]"', datetime.datetime(2025, 5, 4, 20, 22, 34, 941573), 3600)
+2025-05-04 20:22:34,950 - INFO - COMMIT
+2025-05-04 20:22:34,959 - INFO - Record added for example4.com
+2025-05-04 20:22:34,964 - INFO - New Record inserted example4.com
+2025-05-04 20:22:34,965 - INFO - Processing record at index 6: {'action': 'delete', 'hostname': 'example.com', 'type': 'A', 'value': '192.168.1.1'}
+2025-05-04 20:22:35,002 - INFO - BEGIN (implicit)
+2025-05-04 20:22:35,004 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:35,006 - INFO - [cached since 0.7577s ago] ('example.com',)
+2025-05-04 20:22:35,015 - INFO - Existing records for example.com: [<app.models.record_db.DNSRecord object at 0x7f6bea7cc050>]
+2025-05-04 20:22:35,016 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 20:22:35,018 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:22:35,020 - INFO - [cached since 0.6361s ago] ('example.com', 'A')
+2025-05-04 20:22:35,023 - ERROR - Value 192.168.1.1 not found in any record for example.com
+2025-05-04 20:22:35,031 - INFO - Processing record at index 7: {'hostname': 'example5.com', 'type': 'TXT', 'value': ['v=spf1 include:_spf.example.com ~all'], 'ttl_seconds': 3600}
+2025-05-04 20:22:35,057 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:35,059 - INFO - [cached since 0.811s ago] ('example5.com',)
+2025-05-04 20:22:35,067 - INFO - Existing records for example5.com: []
+2025-05-04 20:22:35,069 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:35,072 - INFO - [cached since 0.8236s ago] ('example5.com',)
+2025-05-04 20:22:35,079 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:35,080 - INFO - [cached since 0.7828s ago] ('example5.com', 'TXT', '"[\\"v=spf1 include:_spf.example.com ~all\\"]"', datetime.datetime(2025, 5, 4, 20, 22, 35, 74778), 3600)
+2025-05-04 20:22:35,083 - INFO - COMMIT
+2025-05-04 20:22:35,098 - INFO - Record added for example5.com
+2025-05-04 20:22:35,098 - INFO - New Record inserted example5.com
+2025-05-04 20:22:35,099 - INFO - Processing record at index 8: {'hostname': 'example6.com', 'type': 'A', 'value': ['192.168.1.3']}
+2025-05-04 20:22:35,132 - INFO - BEGIN (implicit)
+2025-05-04 20:22:35,133 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:35,134 - INFO - [cached since 0.8859s ago] ('example6.com',)
+2025-05-04 20:22:35,140 - INFO - Existing records for example6.com: []
+2025-05-04 20:22:35,143 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:22:35,145 - INFO - [cached since 0.8968s ago] ('example6.com',)
+2025-05-04 20:22:35,157 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:22:35,158 - INFO - [generated in 0.00132s] ('example6.com', 'A', '"[\\"192.168.1.3\\"]"', datetime.datetime(2025, 5, 4, 20, 22, 35, 148260), 3600)
+2025-05-04 20:22:35,161 - INFO - COMMIT
+2025-05-04 20:22:35,178 - INFO - Record added for example6.com
+2025-05-04 20:22:35,179 - INFO - New Record inserted example6.com
+2025-05-04 20:23:34,311 - INFO - BEGIN (implicit)
+2025-05-04 20:23:34,315 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:23:34,318 - INFO - [cached since 60.05s ago] ()
+2025-05-04 20:23:34,322 - INFO - COMMIT
+2025-05-04 20:24:18,414 - DEBUG - This is a debug message
+2025-05-04 20:24:18,416 - INFO - This is an info message
+2025-05-04 20:24:18,419 - WARNING - This is a warning message
+2025-05-04 20:24:18,421 - ERROR - This is an error message
+2025-05-04 20:24:18,423 - CRITICAL - This is a critical message
+2025-05-04 20:24:18,683 - INFO - select pg_catalog.version()
+2025-05-04 20:24:18,694 - INFO - [raw sql] ()
+2025-05-04 20:24:18,711 - INFO - select current_schema()
+2025-05-04 20:24:18,712 - INFO - [raw sql] ()
+2025-05-04 20:24:18,725 - INFO - show standard_conforming_strings
+2025-05-04 20:24:18,727 - INFO - [raw sql] ()
+2025-05-04 20:24:18,741 - INFO - BEGIN (implicit)
+2025-05-04 20:24:18,758 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:24:18,760 - INFO - [generated in 0.00157s] ()
+2025-05-04 20:24:18,803 - INFO - COMMIT
+2025-05-04 20:25:18,806 - INFO - BEGIN (implicit)
+2025-05-04 20:25:18,808 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:25:18,809 - INFO - [cached since 60.05s ago] ()
+2025-05-04 20:25:18,813 - INFO - COMMIT
+2025-05-04 20:25:47,657 - DEBUG - This is a debug message
+2025-05-04 20:25:47,658 - INFO - This is an info message
+2025-05-04 20:25:47,659 - WARNING - This is a warning message
+2025-05-04 20:25:47,660 - ERROR - This is an error message
+2025-05-04 20:25:47,661 - CRITICAL - This is a critical message
+2025-05-04 20:25:47,840 - INFO - select pg_catalog.version()
+2025-05-04 20:25:47,842 - INFO - [raw sql] ()
+2025-05-04 20:25:47,848 - INFO - select current_schema()
+2025-05-04 20:25:47,853 - INFO - [raw sql] ()
+2025-05-04 20:25:47,856 - INFO - show standard_conforming_strings
+2025-05-04 20:25:47,861 - INFO - [raw sql] ()
+2025-05-04 20:25:47,866 - INFO - BEGIN (implicit)
+2025-05-04 20:25:47,884 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:25:47,886 - INFO - [generated in 0.00228s] ()
+2025-05-04 20:25:47,919 - INFO - COMMIT
+2025-05-04 20:25:55,327 - DEBUG - This is a debug message
+2025-05-04 20:25:55,339 - INFO - This is an info message
+2025-05-04 20:25:55,340 - WARNING - This is a warning message
+2025-05-04 20:25:55,341 - ERROR - This is an error message
+2025-05-04 20:25:55,341 - CRITICAL - This is a critical message
+2025-05-04 20:25:55,822 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:25:55,824 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:25:55,850 - INFO - HTTP Request: POST http://test/api/dns/bulk "HTTP/1.1 405 Method Not Allowed"
+2025-05-04 20:25:56,185 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:26:47,930 - INFO - BEGIN (implicit)
+2025-05-04 20:26:47,942 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:26:47,960 - INFO - [cached since 60.08s ago] ()
+2025-05-04 20:26:47,977 - INFO - COMMIT
+2025-05-04 20:27:14,998 - DEBUG - This is a debug message
+2025-05-04 20:27:14,999 - INFO - This is an info message
+2025-05-04 20:27:14,999 - WARNING - This is a warning message
+2025-05-04 20:27:15,000 - ERROR - This is an error message
+2025-05-04 20:27:15,001 - CRITICAL - This is a critical message
+2025-05-04 20:27:15,549 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:27:15,554 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:27:15,559 - DEBUG - This is a debug message
+2025-05-04 20:27:15,560 - INFO - This is an info message
+2025-05-04 20:27:15,563 - WARNING - This is a warning message
+2025-05-04 20:27:15,564 - ERROR - This is an error message
+2025-05-04 20:27:15,573 - CRITICAL - This is a critical message
+2025-05-04 20:27:15,619 - INFO - HTTP Request: POST http://test/api/dns/bulk/import "HTTP/1.1 400 Bad Request"
+2025-05-04 20:27:15,922 - INFO - select pg_catalog.version()
+2025-05-04 20:27:16,011 - INFO - [raw sql] ()
+2025-05-04 20:27:16,030 - INFO - select current_schema()
+2025-05-04 20:27:16,112 - INFO - [raw sql] ()
+2025-05-04 20:27:16,154 - INFO - show standard_conforming_strings
+2025-05-04 20:27:16,495 - INFO - [raw sql] ()
+2025-05-04 20:27:16,907 - INFO - BEGIN (implicit)
+2025-05-04 20:27:16,944 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:27:17,099 - INFO - [generated in 0.15508s] ()
+2025-05-04 20:27:17,388 - INFO - COMMIT
+2025-05-04 20:27:19,000 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:28:17,673 - INFO - BEGIN (implicit)
+2025-05-04 20:28:17,675 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:28:17,676 - INFO - [cached since 60.73s ago] ()
+2025-05-04 20:28:17,681 - INFO - COMMIT
+2025-05-04 20:29:17,686 - INFO - BEGIN (implicit)
+2025-05-04 20:29:17,687 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:29:17,689 - INFO - [cached since 120.7s ago] ()
+2025-05-04 20:29:17,693 - INFO - COMMIT
+2025-05-04 20:30:17,699 - INFO - BEGIN (implicit)
+2025-05-04 20:30:17,700 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:30:17,701 - INFO - [cached since 180.8s ago] ()
+2025-05-04 20:30:17,705 - INFO - COMMIT
+2025-05-04 20:31:17,708 - INFO - BEGIN (implicit)
+2025-05-04 20:31:17,709 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:31:17,710 - INFO - [cached since 240.8s ago] ()
+2025-05-04 20:31:17,713 - INFO - COMMIT
+2025-05-04 20:31:37,662 - DEBUG - This is a debug message
+2025-05-04 20:31:37,664 - INFO - This is an info message
+2025-05-04 20:31:37,666 - WARNING - This is a warning message
+2025-05-04 20:31:37,670 - ERROR - This is an error message
+2025-05-04 20:31:37,672 - CRITICAL - This is a critical message
+2025-05-04 20:31:38,062 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:31:38,063 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:31:38,109 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:31:38,110 - DEBUG - Calling on_header_field with data[0:19]
+2025-05-04 20:31:38,111 - DEBUG - Calling on_header_value with data[21:65]
+2025-05-04 20:31:38,112 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:31:38,118 - DEBUG - Calling on_header_field with data[67:79]
+2025-05-04 20:31:38,118 - DEBUG - Calling on_header_value with data[81:97]
+2025-05-04 20:31:38,119 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:31:38,120 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:31:38,121 - DEBUG - Calling on_part_data with data[0:363]
+2025-05-04 20:31:38,123 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:31:38,124 - DEBUG - Calling on_end with no data
+2025-05-04 20:31:38,128 - INFO - Raw file contents: b'[{"hostname": "bulk-ki73pt.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-541ttl.com", "type": "CNAME", "value": "bulk-ib86cm.com", "ttl_seconds": 300}, {"hostname": '...
+2025-05-04 20:31:38,128 - INFO - Cleaned file contents: [{"hostname": "bulk-ki73pt.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-541ttl.com", "type": "CNAME", "value": "bulk-ib86cm.com", "ttl_seconds": 300}, {"hostname": "bulk-zqwg6v.com", "type": "A", "value": ["1.1.1.1"], "action": "delete"}, {"hostname": "bulk-rl2swn.com", "type": "INVALID", "value": "oops", "ttl_seconds": 300}]...
+2025-05-04 20:31:38,137 - INFO - Processing record at index 1: {'hostname': 'bulk-ki73pt.com', 'type': 'A', 'value': ['1.1.1.1'], 'ttl_seconds': 300}
+2025-05-04 20:31:38,176 - INFO - Processing record at index 2: {'hostname': 'bulk-541ttl.com', 'type': 'CNAME', 'value': 'bulk-ib86cm.com', 'ttl_seconds': 300}
+2025-05-04 20:31:38,195 - INFO - Processing record at index 3: {'hostname': 'bulk-zqwg6v.com', 'type': 'A', 'value': ['1.1.1.1'], 'action': 'delete'}
+2025-05-04 20:31:38,213 - INFO - Processing record at index 4: {'hostname': 'bulk-rl2swn.com', 'type': 'INVALID', 'value': 'oops', 'ttl_seconds': 300}
+2025-05-04 20:31:38,234 - INFO - HTTP Request: POST http://test/api/dns/bulk/import "HTTP/1.1 200 OK"
+2025-05-04 20:31:38,589 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:31:39,726 - DEBUG - This is a debug message
+2025-05-04 20:31:39,727 - INFO - This is an info message
+2025-05-04 20:31:39,728 - WARNING - This is a warning message
+2025-05-04 20:31:39,731 - ERROR - This is an error message
+2025-05-04 20:31:39,733 - CRITICAL - This is a critical message
+2025-05-04 20:31:39,909 - INFO - select pg_catalog.version()
+2025-05-04 20:31:39,910 - INFO - [raw sql] ()
+2025-05-04 20:31:39,916 - INFO - select current_schema()
+2025-05-04 20:31:39,917 - INFO - [raw sql] ()
+2025-05-04 20:31:39,923 - INFO - show standard_conforming_strings
+2025-05-04 20:31:39,924 - INFO - [raw sql] ()
+2025-05-04 20:31:39,931 - INFO - BEGIN (implicit)
+2025-05-04 20:31:39,938 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:31:39,939 - INFO - [generated in 0.00091s] ()
+2025-05-04 20:31:39,967 - INFO - COMMIT
+2025-05-04 20:32:39,969 - INFO - BEGIN (implicit)
+2025-05-04 20:32:39,971 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:32:39,973 - INFO - [cached since 60.04s ago] ()
+2025-05-04 20:32:39,976 - INFO - COMMIT
+2025-05-04 20:32:58,669 - DEBUG - This is a debug message
+2025-05-04 20:32:58,670 - INFO - This is an info message
+2025-05-04 20:32:58,671 - WARNING - This is a warning message
+2025-05-04 20:32:58,671 - ERROR - This is an error message
+2025-05-04 20:32:58,673 - CRITICAL - This is a critical message
+2025-05-04 20:32:58,817 - INFO - select pg_catalog.version()
+2025-05-04 20:32:58,818 - INFO - [raw sql] ()
+2025-05-04 20:32:58,830 - INFO - select current_schema()
+2025-05-04 20:32:58,833 - INFO - [raw sql] ()
+2025-05-04 20:32:58,837 - INFO - show standard_conforming_strings
+2025-05-04 20:32:58,839 - INFO - [raw sql] ()
+2025-05-04 20:32:58,843 - INFO - BEGIN (implicit)
+2025-05-04 20:32:58,854 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:32:58,855 - INFO - [generated in 0.00166s] ()
+2025-05-04 20:32:58,883 - INFO - COMMIT
+2025-05-04 20:33:00,813 - DEBUG - This is a debug message
+2025-05-04 20:33:00,814 - INFO - This is an info message
+2025-05-04 20:33:00,817 - WARNING - This is a warning message
+2025-05-04 20:33:00,817 - ERROR - This is an error message
+2025-05-04 20:33:00,819 - CRITICAL - This is a critical message
+2025-05-04 20:33:01,296 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:33:01,298 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:33:01,324 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:33:01,329 - DEBUG - Calling on_header_field with data[0:19]
+2025-05-04 20:33:01,330 - DEBUG - Calling on_header_value with data[21:65]
+2025-05-04 20:33:01,331 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:33:01,331 - DEBUG - Calling on_header_field with data[67:79]
+2025-05-04 20:33:01,332 - DEBUG - Calling on_header_value with data[81:97]
+2025-05-04 20:33:01,332 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:33:01,333 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:33:01,335 - DEBUG - Calling on_part_data with data[0:363]
+2025-05-04 20:33:01,337 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:33:01,337 - DEBUG - Calling on_end with no data
+2025-05-04 20:33:01,340 - INFO - Raw file contents: b'[{"hostname": "bulk-dln38c.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-4q50lf.com", "type": "CNAME", "value": "bulk-nx5q3d.com", "ttl_seconds": 300}, {"hostname": '...
+2025-05-04 20:33:01,341 - INFO - Cleaned file contents: [{"hostname": "bulk-dln38c.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-4q50lf.com", "type": "CNAME", "value": "bulk-nx5q3d.com", "ttl_seconds": 300}, {"hostname": "bulk-65h1gh.com", "type": "A", "value": ["1.1.1.1"], "action": "delete"}, {"hostname": "bulk-n9kg0k.com", "type": "INVALID", "value": "oops", "ttl_seconds": 300}]...
+2025-05-04 20:33:01,342 - INFO - Processing record at index 1: {'hostname': 'bulk-dln38c.com', 'type': 'A', 'value': ['1.1.1.1'], 'ttl_seconds': 300}
+2025-05-04 20:33:01,347 - INFO - Hostname bulk-dln38c.com
+2025-05-04 20:33:01,451 - INFO - select pg_catalog.version()
+2025-05-04 20:33:01,452 - INFO - [raw sql] ()
+2025-05-04 20:33:01,455 - INFO - select current_schema()
+2025-05-04 20:33:01,456 - INFO - [raw sql] ()
+2025-05-04 20:33:01,459 - INFO - show standard_conforming_strings
+2025-05-04 20:33:01,459 - INFO - [raw sql] ()
+2025-05-04 20:33:01,463 - INFO - BEGIN (implicit)
+2025-05-04 20:33:01,470 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,470 - INFO - [generated in 0.00084s] ('bulk-dln38c.com',)
+2025-05-04 20:33:01,492 - INFO - Existing records for bulk-dln38c.com: []
+2025-05-04 20:33:01,493 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,494 - INFO - [cached since 0.02476s ago] ('bulk-dln38c.com',)
+2025-05-04 20:33:01,499 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:33:01,499 - INFO - [generated in 0.00083s] ('bulk-dln38c.com', 'A', '"[\\"1.1.1.1\\"]"', datetime.datetime(2025, 5, 4, 20, 33, 1, 496439), 300)
+2025-05-04 20:33:01,503 - INFO - COMMIT
+2025-05-04 20:33:01,512 - INFO - Record added for bulk-dln38c.com
+2025-05-04 20:33:01,513 - INFO - New Record inserted bulk-dln38c.com
+2025-05-04 20:33:01,513 - INFO - Processing record at index 2: {'hostname': 'bulk-4q50lf.com', 'type': 'CNAME', 'value': 'bulk-nx5q3d.com', 'ttl_seconds': 300}
+2025-05-04 20:33:01,514 - INFO - Hostname bulk-4q50lf.com
+2025-05-04 20:33:01,515 - INFO - BEGIN (implicit)
+2025-05-04 20:33:01,515 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,516 - INFO - [cached since 0.04692s ago] ('bulk-4q50lf.com',)
+2025-05-04 20:33:01,518 - INFO - Existing records for bulk-4q50lf.com: []
+2025-05-04 20:33:01,520 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,520 - INFO - [cached since 0.05082s ago] ('bulk-4q50lf.com',)
+2025-05-04 20:33:01,523 - INFO - Checking CNAME cycle for bulk-4q50lf.com
+2025-05-04 20:33:01,525 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:33:01,526 - INFO - [generated in 0.00078s] ('bulk-nx5q3d.com', 'CNAME')
+2025-05-04 20:33:01,530 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:33:01,531 - INFO - [cached since 0.03217s ago] ('bulk-4q50lf.com', 'CNAME', '"\\"bulk-nx5q3d.com\\""', datetime.datetime(2025, 5, 4, 20, 33, 1, 530054), 300)
+2025-05-04 20:33:01,533 - INFO - COMMIT
+2025-05-04 20:33:01,536 - INFO - Record added for bulk-4q50lf.com
+2025-05-04 20:33:01,536 - INFO - New Record inserted bulk-4q50lf.com
+2025-05-04 20:33:01,537 - INFO - Processing record at index 3: {'hostname': 'bulk-65h1gh.com', 'type': 'A', 'value': ['1.1.1.1'], 'action': 'delete'}
+2025-05-04 20:33:01,537 - INFO - Hostname bulk-65h1gh.com
+2025-05-04 20:33:01,538 - INFO - BEGIN (implicit)
+2025-05-04 20:33:01,539 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,540 - INFO - [cached since 0.07044s ago] ('bulk-65h1gh.com',)
+2025-05-04 20:33:01,542 - INFO - Existing records for bulk-65h1gh.com: []
+2025-05-04 20:33:01,542 - INFO - Attempting to delete record for bulk-65h1gh.com of type A with value ['1.1.1.1']
+2025-05-04 20:33:01,544 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:33:01,545 - INFO - [cached since 0.01961s ago] ('bulk-65h1gh.com', 'A')
+2025-05-04 20:33:01,546 - ERROR - No records found for bulk-65h1gh.com with type A
+2025-05-04 20:33:01,547 - INFO - Processing record at index 4: {'hostname': 'bulk-n9kg0k.com', 'type': 'INVALID', 'value': 'oops', 'ttl_seconds': 300}
+2025-05-04 20:33:01,547 - INFO - Hostname bulk-n9kg0k.com
+2025-05-04 20:33:01,548 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,549 - INFO - [cached since 0.07966s ago] ('bulk-n9kg0k.com',)
+2025-05-04 20:33:01,551 - INFO - Existing records for bulk-n9kg0k.com: []
+2025-05-04 20:33:01,552 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:33:01,553 - INFO - [cached since 0.08308s ago] ('bulk-n9kg0k.com',)
+2025-05-04 20:33:01,555 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:33:01,556 - INFO - [cached since 0.057s ago] ('bulk-n9kg0k.com', 'INVALID', '"\\"oops\\""', datetime.datetime(2025, 5, 4, 20, 33, 1, 554703), 300)
+2025-05-04 20:33:01,558 - INFO - ROLLBACK
+2025-05-04 20:33:01,560 - ERROR - Error during bulk import: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum recordtype: "INVALID"
+[SQL: INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id]
+[parameters: ('bulk-n9kg0k.com', 'INVALID', '"\\"oops\\""', datetime.datetime(2025, 5, 4, 20, 33, 1, 554703), 300)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-05-04 20:33:01,564 - INFO - HTTP Request: POST http://test/api/dns/bulk/import "HTTP/1.1 500 Internal Server Error"
+2025-05-04 20:33:01,893 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:33:58,886 - INFO - BEGIN (implicit)
+2025-05-04 20:33:58,887 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:33:58,888 - INFO - [cached since 60.04s ago] ()
+2025-05-04 20:33:58,892 - INFO - COMMIT
+2025-05-04 20:34:32,522 - DEBUG - This is a debug message
+2025-05-04 20:34:32,523 - INFO - This is an info message
+2025-05-04 20:34:32,524 - WARNING - This is a warning message
+2025-05-04 20:34:32,525 - ERROR - This is an error message
+2025-05-04 20:34:32,528 - CRITICAL - This is a critical message
+2025-05-04 20:34:32,723 - INFO - select pg_catalog.version()
+2025-05-04 20:34:32,725 - INFO - [raw sql] ()
+2025-05-04 20:34:32,732 - INFO - select current_schema()
+2025-05-04 20:34:32,739 - INFO - [raw sql] ()
+2025-05-04 20:34:32,753 - INFO - show standard_conforming_strings
+2025-05-04 20:34:32,754 - INFO - [raw sql] ()
+2025-05-04 20:34:32,762 - INFO - BEGIN (implicit)
+2025-05-04 20:34:32,772 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:34:32,774 - INFO - [generated in 0.00141s] ()
+2025-05-04 20:34:32,812 - INFO - COMMIT
+2025-05-04 20:34:32,897 - DEBUG - This is a debug message
+2025-05-04 20:34:32,898 - INFO - This is an info message
+2025-05-04 20:34:32,898 - WARNING - This is a warning message
+2025-05-04 20:34:32,899 - ERROR - This is an error message
+2025-05-04 20:34:32,899 - CRITICAL - This is a critical message
+2025-05-04 20:34:33,248 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:34:33,251 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:34:33,300 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:34:33,307 - DEBUG - Calling on_header_field with data[0:19]
+2025-05-04 20:34:33,308 - DEBUG - Calling on_header_value with data[21:65]
+2025-05-04 20:34:33,309 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:34:33,310 - DEBUG - Calling on_header_field with data[67:79]
+2025-05-04 20:34:33,310 - DEBUG - Calling on_header_value with data[81:97]
+2025-05-04 20:34:33,311 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:34:33,312 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:34:33,313 - DEBUG - Calling on_part_data with data[0:274]
+2025-05-04 20:34:33,316 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:34:33,317 - DEBUG - Calling on_end with no data
+2025-05-04 20:34:33,325 - INFO - Raw file contents: b'[{"hostname": "bulk-kyaq5p.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-xednjk.com", "type": "CNAME", "value": "bulk-nj4k4f.com", "ttl_seconds": 300}, {"hostname": '...
+2025-05-04 20:34:33,326 - INFO - Cleaned file contents: [{"hostname": "bulk-kyaq5p.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-xednjk.com", "type": "CNAME", "value": "bulk-nj4k4f.com", "ttl_seconds": 300}, {"hostname": "bulk-d1atfb.com", "type": "A", "value": ["1.1.1.1"], "action": "delete"}]...
+2025-05-04 20:34:33,326 - INFO - Processing record at index 1: {'hostname': 'bulk-kyaq5p.com', 'type': 'A', 'value': ['1.1.1.1'], 'ttl_seconds': 300}
+2025-05-04 20:34:33,327 - INFO - Hostname bulk-kyaq5p.com
+2025-05-04 20:34:33,434 - INFO - select pg_catalog.version()
+2025-05-04 20:34:33,436 - INFO - [raw sql] ()
+2025-05-04 20:34:33,440 - INFO - select current_schema()
+2025-05-04 20:34:33,441 - INFO - [raw sql] ()
+2025-05-04 20:34:33,444 - INFO - show standard_conforming_strings
+2025-05-04 20:34:33,444 - INFO - [raw sql] ()
+2025-05-04 20:34:33,447 - INFO - BEGIN (implicit)
+2025-05-04 20:34:33,459 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:34:33,460 - INFO - [generated in 0.00086s] ('bulk-kyaq5p.com',)
+2025-05-04 20:34:33,485 - INFO - Existing records for bulk-kyaq5p.com: []
+2025-05-04 20:34:33,487 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:34:33,488 - INFO - [cached since 0.02852s ago] ('bulk-kyaq5p.com',)
+2025-05-04 20:34:33,492 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:34:33,493 - INFO - [generated in 0.00094s] ('bulk-kyaq5p.com', 'A', '"[\\"1.1.1.1\\"]"', datetime.datetime(2025, 5, 4, 20, 34, 33, 490272), 300)
+2025-05-04 20:34:33,496 - INFO - COMMIT
+2025-05-04 20:34:33,499 - INFO - Record added for bulk-kyaq5p.com
+2025-05-04 20:34:33,499 - INFO - New Record inserted bulk-kyaq5p.com
+2025-05-04 20:34:33,500 - INFO - Processing record at index 2: {'hostname': 'bulk-xednjk.com', 'type': 'CNAME', 'value': 'bulk-nj4k4f.com', 'ttl_seconds': 300}
+2025-05-04 20:34:33,500 - INFO - Hostname bulk-xednjk.com
+2025-05-04 20:34:33,504 - INFO - BEGIN (implicit)
+2025-05-04 20:34:33,505 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:34:33,506 - INFO - [cached since 0.04689s ago] ('bulk-xednjk.com',)
+2025-05-04 20:34:33,508 - INFO - Existing records for bulk-xednjk.com: []
+2025-05-04 20:34:33,510 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:34:33,511 - INFO - [cached since 0.05124s ago] ('bulk-xednjk.com',)
+2025-05-04 20:34:33,512 - INFO - Checking CNAME cycle for bulk-xednjk.com
+2025-05-04 20:34:33,514 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:34:33,515 - INFO - [generated in 0.00080s] ('bulk-nj4k4f.com', 'CNAME')
+2025-05-04 20:34:33,520 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:34:33,520 - INFO - [cached since 0.0283s ago] ('bulk-xednjk.com', 'CNAME', '"\\"bulk-nj4k4f.com\\""', datetime.datetime(2025, 5, 4, 20, 34, 33, 518122), 300)
+2025-05-04 20:34:33,523 - INFO - COMMIT
+2025-05-04 20:34:33,525 - INFO - Record added for bulk-xednjk.com
+2025-05-04 20:34:33,526 - INFO - New Record inserted bulk-xednjk.com
+2025-05-04 20:34:33,527 - INFO - Processing record at index 3: {'hostname': 'bulk-d1atfb.com', 'type': 'A', 'value': ['1.1.1.1'], 'action': 'delete'}
+2025-05-04 20:34:33,527 - INFO - Hostname bulk-d1atfb.com
+2025-05-04 20:34:33,528 - INFO - BEGIN (implicit)
+2025-05-04 20:34:33,529 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:34:33,530 - INFO - [cached since 0.0703s ago] ('bulk-d1atfb.com',)
+2025-05-04 20:34:33,532 - INFO - Existing records for bulk-d1atfb.com: []
+2025-05-04 20:34:33,532 - INFO - Attempting to delete record for bulk-d1atfb.com of type A with value ['1.1.1.1']
+2025-05-04 20:34:33,533 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:34:33,534 - INFO - [cached since 0.01969s ago] ('bulk-d1atfb.com', 'A')
+2025-05-04 20:34:33,536 - ERROR - No records found for bulk-d1atfb.com with type A
+2025-05-04 20:34:33,536 - INFO - COMMIT
+2025-05-04 20:34:33,540 - INFO - HTTP Request: POST http://test/api/dns/bulk/import "HTTP/1.1 200 OK"
+2025-05-04 20:34:33,542 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:10,322 - DEBUG - This is a debug message
+2025-05-04 20:35:10,322 - INFO - This is an info message
+2025-05-04 20:35:10,323 - WARNING - This is a warning message
+2025-05-04 20:35:10,323 - ERROR - This is an error message
+2025-05-04 20:35:10,324 - CRITICAL - This is a critical message
+2025-05-04 20:35:10,717 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:10,718 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:10,750 - DEBUG - Received request to add record for hostname: example.com
+2025-05-04 20:35:10,865 - INFO - select pg_catalog.version()
+2025-05-04 20:35:10,866 - INFO - [raw sql] ()
+2025-05-04 20:35:10,870 - INFO - select current_schema()
+2025-05-04 20:35:10,870 - INFO - [raw sql] ()
+2025-05-04 20:35:10,873 - INFO - show standard_conforming_strings
+2025-05-04 20:35:10,873 - INFO - [raw sql] ()
+2025-05-04 20:35:10,876 - INFO - BEGIN (implicit)
+2025-05-04 20:35:10,884 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:10,885 - INFO - [generated in 0.00097s] ('example.com',)
+2025-05-04 20:35:10,915 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:10,916 - INFO - [generated in 0.00100s] ('example.com', 'A', '"[\\"192.168.0.1\\"]"', datetime.datetime(2025, 5, 4, 20, 35, 10, 912840), 300)
+2025-05-04 20:35:10,921 - INFO - COMMIT
+2025-05-04 20:35:10,931 - INFO - Record added for example.com
+2025-05-04 20:35:10,931 - INFO - New Record inserted example.com
+2025-05-04 20:35:10,934 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:35:10,992 - DEBUG - Received request to add record for hostname: duplicate.com
+2025-05-04 20:35:10,994 - INFO - BEGIN (implicit)
+2025-05-04 20:35:10,996 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:10,996 - INFO - [cached since 0.1126s ago] ('duplicate.com',)
+2025-05-04 20:35:10,999 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:11,000 - INFO - [cached since 0.08452s ago] ('duplicate.com', 'A', '"[\\"192.168.0.2\\"]"', datetime.datetime(2025, 5, 4, 20, 35, 10, 998723), 300)
+2025-05-04 20:35:11,002 - INFO - COMMIT
+2025-05-04 20:35:11,012 - INFO - Record added for duplicate.com
+2025-05-04 20:35:11,012 - INFO - New Record inserted duplicate.com
+2025-05-04 20:35:11,014 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:35:11,070 - DEBUG - Received request to add record for hostname: duplicate.com
+2025-05-04 20:35:11,072 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,073 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,073 - INFO - [cached since 0.1895s ago] ('duplicate.com',)
+2025-05-04 20:35:11,075 - DEBUG - Existing Record: RecordType.A, New Record: A
+2025-05-04 20:35:11,076 - DEBUG - Existing values: ['192.168.0.2'], New values: ['192.168.0.2']
+2025-05-04 20:35:11,076 - ERROR - Duplicate record found for duplicate.com
+2025-05-04 20:35:11,077 - INFO - ROLLBACK
+2025-05-04 20:35:11,080 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 409 Conflict"
+2025-05-04 20:35:11,135 - DEBUG - Received request to add record for hostname: mail.com
+2025-05-04 20:35:11,137 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,138 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,139 - INFO - [cached since 0.2549s ago] ('mail.com',)
+2025-05-04 20:35:11,141 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:11,142 - INFO - [cached since 0.2267s ago] ('mail.com', 'MX', '"{\\"priority\\": 10, \\"host\\": \\"mx1.mail.com\\"}"', datetime.datetime(2025, 5, 4, 20, 35, 11, 141108), 300)
+2025-05-04 20:35:11,144 - INFO - COMMIT
+2025-05-04 20:35:11,153 - INFO - Record added for mail.com
+2025-05-04 20:35:11,154 - INFO - New Record inserted mail.com
+2025-05-04 20:35:11,156 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:35:11,211 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 422 Unprocessable Entity"
+2025-05-04 20:35:11,265 - DEBUG - Received request to add record for hostname: invalid_hostname!@#
+2025-05-04 20:35:11,267 - ERROR - Invalid hostname: invalid_hostname!@#
+2025-05-04 20:35:11,269 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 400 Bad Request"
+2025-05-04 20:35:11,325 - DEBUG - Received request to add record for hostname: txtentry.com
+2025-05-04 20:35:11,327 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,329 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,329 - INFO - [cached since 0.4455s ago] ('txtentry.com',)
+2025-05-04 20:35:11,332 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:11,333 - INFO - [cached since 0.4176s ago] ('txtentry.com', 'TXT', '"[\\"v=spf1 include:_spf.google.com ~all\\"]"', datetime.datetime(2025, 5, 4, 20, 35, 11, 332037), 300)
+2025-05-04 20:35:11,335 - INFO - COMMIT
+2025-05-04 20:35:11,345 - INFO - Record added for txtentry.com
+2025-05-04 20:35:11,345 - INFO - New Record inserted txtentry.com
+2025-05-04 20:35:11,347 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:35:11,402 - DEBUG - Received request to add record for hostname: alias.com
+2025-05-04 20:35:11,404 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,405 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,406 - INFO - [cached since 0.5225s ago] ('alias.com',)
+2025-05-04 20:35:11,408 - INFO - Checking CNAME cycle for alias.com
+2025-05-04 20:35:11,411 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:35:11,412 - INFO - [generated in 0.00093s] ('target.com', 'CNAME')
+2025-05-04 20:35:11,415 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:11,416 - INFO - [cached since 0.5006s ago] ('alias.com', 'CNAME', '"\\"target.com\\""', datetime.datetime(2025, 5, 4, 20, 35, 11, 415047), 300)
+2025-05-04 20:35:11,419 - INFO - COMMIT
+2025-05-04 20:35:11,422 - INFO - Record added for alias.com
+2025-05-04 20:35:11,422 - INFO - New Record inserted alias.com
+2025-05-04 20:35:11,424 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:35:11,479 - DEBUG - Received request to add record for hostname: alias.com
+2025-05-04 20:35:11,481 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,482 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,482 - INFO - [cached since 0.5989s ago] ('alias.com',)
+2025-05-04 20:35:11,485 - DEBUG - Existing Record: RecordType.CNAME, New Record: A
+2025-05-04 20:35:11,485 - ERROR - Duplicate record type for alias.com
+2025-05-04 20:35:11,486 - INFO - ROLLBACK
+2025-05-04 20:35:11,488 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 409 Conflict"
+2025-05-04 20:35:11,493 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:11,500 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:11,510 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:35:11,511 - DEBUG - Calling on_header_field with data[0:19]
+2025-05-04 20:35:11,515 - DEBUG - Calling on_header_value with data[21:65]
+2025-05-04 20:35:11,516 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:35:11,517 - DEBUG - Calling on_header_field with data[67:79]
+2025-05-04 20:35:11,518 - DEBUG - Calling on_header_value with data[81:97]
+2025-05-04 20:35:11,519 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:35:11,520 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:35:11,522 - DEBUG - Calling on_part_data with data[0:274]
+2025-05-04 20:35:11,524 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:35:11,525 - DEBUG - Calling on_end with no data
+2025-05-04 20:35:11,528 - INFO - Raw file contents: b'[{"hostname": "bulk-db3ery.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-n4r3ej.com", "type": "CNAME", "value": "bulk-09k3ic.com", "ttl_seconds": 300}, {"hostname": '...
+2025-05-04 20:35:11,532 - INFO - Cleaned file contents: [{"hostname": "bulk-db3ery.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-n4r3ej.com", "type": "CNAME", "value": "bulk-09k3ic.com", "ttl_seconds": 300}, {"hostname": "bulk-8a2tni.com", "type": "A", "value": ["1.1.1.1"], "action": "delete"}]...
+2025-05-04 20:35:11,533 - INFO - Processing record at index 1: {'hostname': 'bulk-db3ery.com', 'type': 'A', 'value': ['1.1.1.1'], 'ttl_seconds': 300}
+2025-05-04 20:35:11,533 - INFO - Hostname bulk-db3ery.com
+2025-05-04 20:35:11,535 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,537 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,538 - INFO - [cached since 0.6545s ago] ('bulk-db3ery.com',)
+2025-05-04 20:35:11,539 - INFO - Processing record at index 2: {'hostname': 'bulk-n4r3ej.com', 'type': 'CNAME', 'value': 'bulk-09k3ic.com', 'ttl_seconds': 300}
+2025-05-04 20:35:11,540 - INFO - Hostname bulk-n4r3ej.com
+2025-05-04 20:35:11,541 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,542 - INFO - [cached since 0.6584s ago] ('bulk-n4r3ej.com',)
+2025-05-04 20:35:11,543 - INFO - Processing record at index 3: {'hostname': 'bulk-8a2tni.com', 'type': 'A', 'value': ['1.1.1.1'], 'action': 'delete'}
+2025-05-04 20:35:11,544 - INFO - Hostname bulk-8a2tni.com
+2025-05-04 20:35:11,545 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:11,545 - INFO - [cached since 0.6617s ago] ('bulk-8a2tni.com',)
+2025-05-04 20:35:11,547 - INFO - COMMIT
+2025-05-04 20:35:11,558 - INFO - HTTP Request: POST http://test/api/dns/bulk/import "HTTP/1.1 200 OK"
+2025-05-04 20:35:11,918 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:11,929 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:11,931 - INFO - BEGIN (implicit)
+2025-05-04 20:35:11,933 - INFO - SELECT 1
+2025-05-04 20:35:11,934 - INFO - [generated in 0.00105s] ()
+2025-05-04 20:35:11,936 - INFO - ROLLBACK
+2025-05-04 20:35:13,013 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:13,018 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:13,027 - DEBUG - Received request to add record for hostname: delete-1d434948.com
+2025-05-04 20:35:14,020 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:14,029 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:14,040 - DEBUG - Received request to add record for hostname: list-a-txhnf5.com
+2025-05-04 20:35:14,051 - INFO - BEGIN (implicit)
+2025-05-04 20:35:14,053 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:14,054 - INFO - [cached since 3.171s ago] ('list-a-txhnf5.com',)
+2025-05-04 20:35:14,056 - INFO - ROLLBACK
+2025-05-04 20:35:16,041 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:16,049 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:16,059 - WARNING - ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: /api/dns/
+2025-05-04 20:35:16,061 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 429 Too Many Requests"
+2025-05-04 20:35:16,088 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:32,825 - INFO - BEGIN (implicit)
+2025-05-04 20:35:32,827 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:35:32,828 - INFO - [cached since 60.06s ago] ()
+2025-05-04 20:35:32,831 - INFO - COMMIT
+2025-05-04 20:35:37,957 - DEBUG - This is a debug message
+2025-05-04 20:35:37,958 - INFO - This is an info message
+2025-05-04 20:35:37,958 - WARNING - This is a warning message
+2025-05-04 20:35:37,959 - ERROR - This is an error message
+2025-05-04 20:35:37,959 - CRITICAL - This is a critical message
+2025-05-04 20:35:38,201 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:38,203 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:38,250 - DEBUG - Calling on_part_begin with no data
+2025-05-04 20:35:38,263 - DEBUG - Calling on_header_field with data[0:19]
+2025-05-04 20:35:38,264 - DEBUG - Calling on_header_value with data[21:65]
+2025-05-04 20:35:38,265 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:35:38,266 - DEBUG - Calling on_header_field with data[67:79]
+2025-05-04 20:35:38,266 - DEBUG - Calling on_header_value with data[81:97]
+2025-05-04 20:35:38,267 - DEBUG - Calling on_header_end with no data
+2025-05-04 20:35:38,267 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 20:35:38,269 - DEBUG - Calling on_part_data with data[0:274]
+2025-05-04 20:35:38,271 - DEBUG - Calling on_part_end with no data
+2025-05-04 20:35:38,272 - DEBUG - Calling on_end with no data
+2025-05-04 20:35:38,277 - INFO - Raw file contents: b'[{"hostname": "bulk-0jo34h.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-r0p2gb.com", "type": "CNAME", "value": "bulk-i9vwj7.com", "ttl_seconds": 300}, {"hostname": '...
+2025-05-04 20:35:38,277 - INFO - Cleaned file contents: [{"hostname": "bulk-0jo34h.com", "type": "A", "value": ["1.1.1.1"], "ttl_seconds": 300}, {"hostname": "bulk-r0p2gb.com", "type": "CNAME", "value": "bulk-i9vwj7.com", "ttl_seconds": 300}, {"hostname": "bulk-os2hfz.com", "type": "A", "value": ["1.1.1.1"], "action": "delete"}]...
+2025-05-04 20:35:38,278 - INFO - Processing record at index 1: {'hostname': 'bulk-0jo34h.com', 'type': 'A', 'value': ['1.1.1.1'], 'ttl_seconds': 300}
+2025-05-04 20:35:38,278 - INFO - Hostname bulk-0jo34h.com
+2025-05-04 20:35:38,380 - INFO - select pg_catalog.version()
+2025-05-04 20:35:38,381 - INFO - [raw sql] ()
+2025-05-04 20:35:38,388 - INFO - select current_schema()
+2025-05-04 20:35:38,389 - INFO - [raw sql] ()
+2025-05-04 20:35:38,392 - INFO - show standard_conforming_strings
+2025-05-04 20:35:38,393 - INFO - [raw sql] ()
+2025-05-04 20:35:38,397 - INFO - BEGIN (implicit)
+2025-05-04 20:35:38,407 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:38,408 - INFO - [generated in 0.00088s] ('bulk-0jo34h.com',)
+2025-05-04 20:35:38,436 - INFO - Existing records for bulk-0jo34h.com: []
+2025-05-04 20:35:38,438 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:38,440 - INFO - [cached since 0.03281s ago] ('bulk-0jo34h.com',)
+2025-05-04 20:35:38,448 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:38,449 - INFO - [generated in 0.00166s] ('bulk-0jo34h.com', 'A', '"[\\"1.1.1.1\\"]"', datetime.datetime(2025, 5, 4, 20, 35, 38, 442291), 300)
+2025-05-04 20:35:38,453 - INFO - COMMIT
+2025-05-04 20:35:38,463 - INFO - Record added for bulk-0jo34h.com
+2025-05-04 20:35:38,463 - INFO - New Record inserted bulk-0jo34h.com
+2025-05-04 20:35:38,464 - INFO - Processing record at index 2: {'hostname': 'bulk-r0p2gb.com', 'type': 'CNAME', 'value': 'bulk-i9vwj7.com', 'ttl_seconds': 300}
+2025-05-04 20:35:38,465 - INFO - Hostname bulk-r0p2gb.com
+2025-05-04 20:35:38,466 - INFO - BEGIN (implicit)
+2025-05-04 20:35:38,467 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:38,468 - INFO - [cached since 0.06061s ago] ('bulk-r0p2gb.com',)
+2025-05-04 20:35:38,470 - INFO - Existing records for bulk-r0p2gb.com: []
+2025-05-04 20:35:38,471 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:38,472 - INFO - [cached since 0.06515s ago] ('bulk-r0p2gb.com',)
+2025-05-04 20:35:38,474 - INFO - Checking CNAME cycle for bulk-r0p2gb.com
+2025-05-04 20:35:38,479 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:35:38,480 - INFO - [generated in 0.00119s] ('bulk-i9vwj7.com', 'CNAME')
+2025-05-04 20:35:38,485 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:35:38,486 - INFO - [cached since 0.03846s ago] ('bulk-r0p2gb.com', 'CNAME', '"\\"bulk-i9vwj7.com\\""', datetime.datetime(2025, 5, 4, 20, 35, 38, 484478), 300)
+2025-05-04 20:35:38,488 - INFO - COMMIT
+2025-05-04 20:35:38,492 - INFO - Record added for bulk-r0p2gb.com
+2025-05-04 20:35:38,493 - INFO - New Record inserted bulk-r0p2gb.com
+2025-05-04 20:35:38,494 - INFO - Processing record at index 3: {'hostname': 'bulk-os2hfz.com', 'type': 'A', 'value': ['1.1.1.1'], 'action': 'delete'}
+2025-05-04 20:35:38,494 - INFO - Hostname bulk-os2hfz.com
+2025-05-04 20:35:38,495 - INFO - BEGIN (implicit)
+2025-05-04 20:35:38,497 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:38,497 - INFO - [cached since 0.09033s ago] ('bulk-os2hfz.com',)
+2025-05-04 20:35:38,499 - INFO - Existing records for bulk-os2hfz.com: []
+2025-05-04 20:35:38,501 - INFO - Attempting to delete record for bulk-os2hfz.com of type A with value ['1.1.1.1']
+2025-05-04 20:35:38,503 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:35:38,504 - INFO - [cached since 0.02503s ago] ('bulk-os2hfz.com', 'A')
+2025-05-04 20:35:38,508 - ERROR - No records found for bulk-os2hfz.com with type A
+2025-05-04 20:35:38,509 - INFO - COMMIT
+2025-05-04 20:35:38,513 - INFO - HTTP Request: POST http://test/api/dns/bulk/import "HTTP/1.1 200 OK"
+2025-05-04 20:35:38,516 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:46,186 - DEBUG - This is a debug message
+2025-05-04 20:35:46,187 - INFO - This is an info message
+2025-05-04 20:35:46,188 - WARNING - This is a warning message
+2025-05-04 20:35:46,188 - ERROR - This is an error message
+2025-05-04 20:35:46,189 - CRITICAL - This is a critical message
+2025-05-04 20:35:46,430 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:46,432 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:35:46,462 - DEBUG - Received request to add record for hostname: example.com
+2025-05-04 20:35:46,595 - INFO - select pg_catalog.version()
+2025-05-04 20:35:46,596 - INFO - [raw sql] ()
+2025-05-04 20:35:46,600 - INFO - select current_schema()
+2025-05-04 20:35:46,601 - INFO - [raw sql] ()
+2025-05-04 20:35:46,605 - INFO - show standard_conforming_strings
+2025-05-04 20:35:46,606 - INFO - [raw sql] ()
+2025-05-04 20:35:46,609 - INFO - BEGIN (implicit)
+2025-05-04 20:35:46,615 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:35:46,616 - INFO - [generated in 0.00095s] ('example.com',)
+2025-05-04 20:35:46,639 - DEBUG - Existing Record: RecordType.A, New Record: A
+2025-05-04 20:35:46,639 - DEBUG - Existing values: ['192.168.0.1'], New values: ['192.168.0.1']
+2025-05-04 20:35:46,640 - ERROR - Duplicate record found for example.com
+2025-05-04 20:35:46,641 - INFO - ROLLBACK
+2025-05-04 20:35:46,643 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 409 Conflict"
+2025-05-04 20:35:46,960 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:05,480 - DEBUG - This is a debug message
+2025-05-04 20:36:05,481 - INFO - This is an info message
+2025-05-04 20:36:05,481 - WARNING - This is a warning message
+2025-05-04 20:36:05,481 - ERROR - This is an error message
+2025-05-04 20:36:05,482 - CRITICAL - This is a critical message
+2025-05-04 20:36:05,727 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:05,728 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:05,774 - DEBUG - Received request to add record for hostname: list-a-9r9g0t.com
+2025-05-04 20:36:05,931 - INFO - select pg_catalog.version()
+2025-05-04 20:36:05,933 - INFO - [raw sql] ()
+2025-05-04 20:36:05,939 - INFO - select current_schema()
+2025-05-04 20:36:05,940 - INFO - [raw sql] ()
+2025-05-04 20:36:05,943 - INFO - show standard_conforming_strings
+2025-05-04 20:36:05,955 - INFO - [raw sql] ()
+2025-05-04 20:36:05,960 - INFO - BEGIN (implicit)
+2025-05-04 20:36:05,976 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:05,982 - INFO - [generated in 0.00650s] ('list-a-9r9g0t.com',)
+2025-05-04 20:36:06,028 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:36:06,029 - INFO - [generated in 0.00102s] ('list-a-9r9g0t.com', 'A', '"[\\"192.168.123.1\\"]"', datetime.datetime(2025, 5, 4, 20, 36, 6, 24810), 300)
+2025-05-04 20:36:06,034 - INFO - COMMIT
+2025-05-04 20:36:06,056 - INFO - Record added for list-a-9r9g0t.com
+2025-05-04 20:36:06,056 - INFO - New Record inserted list-a-9r9g0t.com
+2025-05-04 20:36:06,059 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:36:06,117 - DEBUG - Received request to add record for hostname: list-txt-ghmg0y.com
+2025-05-04 20:36:06,119 - INFO - BEGIN (implicit)
+2025-05-04 20:36:06,120 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:06,121 - INFO - [cached since 0.145s ago] ('list-txt-ghmg0y.com',)
+2025-05-04 20:36:06,123 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:36:06,124 - INFO - [cached since 0.0961s ago] ('list-txt-ghmg0y.com', 'TXT', '"[\\"v=spf1 include:_spf.example.com ~all\\"]"', datetime.datetime(2025, 5, 4, 20, 36, 6, 123284), 300)
+2025-05-04 20:36:06,127 - INFO - COMMIT
+2025-05-04 20:36:06,145 - INFO - Record added for list-txt-ghmg0y.com
+2025-05-04 20:36:06,145 - INFO - New Record inserted list-txt-ghmg0y.com
+2025-05-04 20:36:06,148 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:36:06,204 - INFO - BEGIN (implicit)
+2025-05-04 20:36:06,205 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:06,206 - INFO - [cached since 0.2304s ago] ('list-a-9r9g0t.com',)
+2025-05-04 20:36:06,209 - INFO - ROLLBACK
+2025-05-04 20:36:06,212 - INFO - HTTP Request: GET http://test/api/dns/list-a-9r9g0t.com/records "HTTP/1.1 200 OK"
+2025-05-04 20:36:06,217 - INFO - BEGIN (implicit)
+2025-05-04 20:36:06,219 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:06,219 - INFO - [cached since 0.2438s ago] ('list-txt-ghmg0y.com',)
+2025-05-04 20:36:06,223 - INFO - ROLLBACK
+2025-05-04 20:36:06,226 - INFO - HTTP Request: GET http://test/api/dns/list-txt-ghmg0y.com/records "HTTP/1.1 200 OK"
+2025-05-04 20:36:06,229 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:14,491 - DEBUG - This is a debug message
+2025-05-04 20:36:14,491 - INFO - This is an info message
+2025-05-04 20:36:14,492 - WARNING - This is a warning message
+2025-05-04 20:36:14,492 - ERROR - This is an error message
+2025-05-04 20:36:14,493 - CRITICAL - This is a critical message
+2025-05-04 20:36:14,701 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:14,702 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:14,722 - DEBUG - Received request to add record for hostname: direct-jzt0tp.com
+2025-05-04 20:36:14,795 - INFO - select pg_catalog.version()
+2025-05-04 20:36:14,796 - INFO - [raw sql] ()
+2025-05-04 20:36:14,799 - INFO - select current_schema()
+2025-05-04 20:36:14,800 - INFO - [raw sql] ()
+2025-05-04 20:36:14,802 - INFO - show standard_conforming_strings
+2025-05-04 20:36:14,803 - INFO - [raw sql] ()
+2025-05-04 20:36:14,805 - INFO - BEGIN (implicit)
+2025-05-04 20:36:14,810 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:14,811 - INFO - [generated in 0.00077s] ('direct-jzt0tp.com',)
+2025-05-04 20:36:14,828 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:36:14,829 - INFO - [generated in 0.00085s] ('direct-jzt0tp.com', 'A', '"[\\"9.9.9.9\\"]"', datetime.datetime(2025, 5, 4, 20, 36, 14, 826547), 300)
+2025-05-04 20:36:14,831 - INFO - COMMIT
+2025-05-04 20:36:14,842 - INFO - Record added for direct-jzt0tp.com
+2025-05-04 20:36:14,844 - INFO - New Record inserted direct-jzt0tp.com
+2025-05-04 20:36:14,848 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:36:14,908 - DEBUG - Received request to add record for hostname: alias1-13x42h.com
+2025-05-04 20:36:14,911 - INFO - BEGIN (implicit)
+2025-05-04 20:36:14,913 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:14,914 - INFO - [cached since 0.1042s ago] ('alias1-13x42h.com',)
+2025-05-04 20:36:14,919 - INFO - Checking CNAME cycle for alias1-13x42h.com
+2025-05-04 20:36:14,925 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:36:14,926 - INFO - [generated in 0.00136s] ('direct-jzt0tp.com', 'CNAME')
+2025-05-04 20:36:14,931 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:36:14,932 - INFO - [cached since 0.1037s ago] ('alias1-13x42h.com', 'CNAME', '"\\"direct-jzt0tp.com\\""', datetime.datetime(2025, 5, 4, 20, 36, 14, 930392), 300)
+2025-05-04 20:36:14,934 - INFO - COMMIT
+2025-05-04 20:36:14,944 - INFO - Record added for alias1-13x42h.com
+2025-05-04 20:36:14,945 - INFO - New Record inserted alias1-13x42h.com
+2025-05-04 20:36:14,947 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:36:15,004 - DEBUG - Received request to add record for hostname: alias2-qp6pxo.com
+2025-05-04 20:36:15,006 - INFO - BEGIN (implicit)
+2025-05-04 20:36:15,007 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:15,008 - INFO - [cached since 0.1977s ago] ('alias2-qp6pxo.com',)
+2025-05-04 20:36:15,011 - INFO - Checking CNAME cycle for alias2-qp6pxo.com
+2025-05-04 20:36:15,012 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:36:15,013 - INFO - [cached since 0.0882s ago] ('alias1-13x42h.com', 'CNAME')
+2025-05-04 20:36:15,016 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 20:36:15,017 - INFO - [cached since 0.09184s ago] ('direct-jzt0tp.com', 'CNAME')
+2025-05-04 20:36:15,019 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 20:36:15,020 - INFO - [cached since 0.1923s ago] ('alias2-qp6pxo.com', 'CNAME', '"\\"alias1-13x42h.com\\""', datetime.datetime(2025, 5, 4, 20, 36, 15, 19040), 300)
+2025-05-04 20:36:15,023 - INFO - COMMIT
+2025-05-04 20:36:15,033 - INFO - Record added for alias2-qp6pxo.com
+2025-05-04 20:36:15,033 - INFO - New Record inserted alias2-qp6pxo.com
+2025-05-04 20:36:15,036 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 20:36:15,141 - INFO - BEGIN (implicit)
+2025-05-04 20:36:15,143 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:15,143 - INFO - [cached since 0.3331s ago] ('alias2-qp6pxo.com',)
+2025-05-04 20:36:15,146 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:15,147 - INFO - [cached since 0.3366s ago] ('alias1-13x42h.com',)
+2025-05-04 20:36:15,150 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 20:36:15,151 - INFO - [cached since 0.3406s ago] ('direct-jzt0tp.com',)
+2025-05-04 20:36:15,153 - INFO - ROLLBACK
+2025-05-04 20:36:15,157 - INFO - HTTP Request: GET http://test/api/dns/alias2-qp6pxo.com "HTTP/1.1 200 OK"
+2025-05-04 20:36:15,160 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:23,848 - DEBUG - This is a debug message
+2025-05-04 20:36:23,848 - INFO - This is an info message
+2025-05-04 20:36:23,849 - WARNING - This is a warning message
+2025-05-04 20:36:23,850 - ERROR - This is an error message
+2025-05-04 20:36:23,850 - CRITICAL - This is a critical message
+2025-05-04 20:36:24,080 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:24,081 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:24,199 - INFO - select pg_catalog.version()
+2025-05-04 20:36:24,200 - INFO - [raw sql] ()
+2025-05-04 20:36:24,204 - INFO - select current_schema()
+2025-05-04 20:36:24,205 - INFO - [raw sql] ()
+2025-05-04 20:36:24,208 - INFO - show standard_conforming_strings
+2025-05-04 20:36:24,208 - INFO - [raw sql] ()
+2025-05-04 20:36:24,211 - INFO - BEGIN (implicit)
+2025-05-04 20:36:24,212 - INFO - SELECT 1
+2025-05-04 20:36:24,212 - INFO - [generated in 0.00061s] ()
+2025-05-04 20:36:24,214 - INFO - ROLLBACK
+2025-05-04 20:36:24,217 - DEBUG - Using selector: EpollSelector
+2025-05-04 20:36:32,833 - INFO - BEGIN (implicit)
+2025-05-04 20:36:32,835 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 20:36:32,836 - INFO - [cached since 120.1s ago] ()
+2025-05-04 20:36:32,839 - INFO - COMMIT

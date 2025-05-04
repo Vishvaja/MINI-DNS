@@ -15,9 +15,9 @@ class RecordType(enum.Enum):
 class DNSRecord(Base):
     __tablename__ = "dns_records"
 
-    hostname = Column(String, nullable=False)  # Could change to UUID+hostname combo for multi-record support
+    hostname = Column(String, nullable=False)  
     type = Column(Enum(RecordType), nullable=False)
-    value = Column(JSON, nullable=False)  # A/AAAA -> list of IPs, CNAME/TXT/MX -> string or list
+    value = Column(JSON, nullable=False) 
     timestamp_created = Column(DateTime, default=datetime.utcnow)
     ttl_seconds = Column(Integer, default=3600)
-    id = Column(Integer, primary_key=True, autoincrement=True)  # Auto-incrementing primary key
+    id = Column(Integer, primary_key=True, autoincrement=True) 
