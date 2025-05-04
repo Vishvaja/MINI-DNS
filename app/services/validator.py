@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from app.core.errors import ErrorCode, raise_error
 
 
-if not is_valid_hostname(hostname):
+if not is_regex_hostname(hostname):
     raise_error(ErrorCode.INVALID_HOSTNAME, status_code=400)
 
 def validate_dns_record_type_conflict(new_type: RecordType, existing: List[DNSRecord]):

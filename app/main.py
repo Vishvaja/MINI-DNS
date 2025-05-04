@@ -5,7 +5,7 @@ from slowapi.errors import RateLimitExceeded
 from fastapi.responses import JSONResponse
 from app.services.ttl_cleanup import start_cleanup_task
 from app.api import dns_routes
-
+from app.core.logger import *
 import os
 
 app = FastAPI()

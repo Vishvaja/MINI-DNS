@@ -1,0 +1,2568 @@
+2025-05-04 17:43:00,913 - DEBUG - This is a debug message
+2025-05-04 17:43:00,913 - INFO - This is an info message
+2025-05-04 17:43:00,914 - WARNING - This is a warning message
+2025-05-04 17:43:00,916 - ERROR - This is an error message
+2025-05-04 17:43:00,916 - CRITICAL - This is a critical message
+2025-05-04 17:43:01,130 - INFO - select pg_catalog.version()
+2025-05-04 17:43:01,303 - INFO - [raw sql] ()
+2025-05-04 17:43:01,361 - INFO - select current_schema()
+2025-05-04 17:43:01,368 - INFO - [raw sql] ()
+2025-05-04 17:43:01,374 - INFO - show standard_conforming_strings
+2025-05-04 17:43:01,386 - INFO - [raw sql] ()
+2025-05-04 17:43:01,398 - INFO - BEGIN (implicit)
+2025-05-04 17:43:01,444 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:43:01,472 - INFO - [generated in 0.02816s] ()
+2025-05-04 17:43:01,527 - INFO - COMMIT
+2025-05-04 17:43:08,658 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:43:08,670 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:43:08,676 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:43:08,681 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:43:08,684 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:43:08,688 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:43:08,692 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:43:08,699 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:43:08,705 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:43:08,720 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:43:08,746 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:43:08,767 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:43:08,769 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:43:08,771 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:43:08,780 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:43:08,782 - DEBUG - Calling on_end with no data
+2025-05-04 17:43:08,837 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:43:08,871 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:43:08,968 - INFO - BEGIN (implicit)
+2025-05-04 17:43:09,025 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:43:09,066 - INFO - [generated in 0.04105s] ('example.com',)
+2025-05-04 17:43:09,612 - ERROR - Error during bulk import: name 'ValidationError' is not defined
+2025-05-04 17:43:09,616 - INFO - ROLLBACK
+2025-05-04 17:43:56,502 - DEBUG - This is a debug message
+2025-05-04 17:43:56,503 - INFO - This is an info message
+2025-05-04 17:43:56,505 - WARNING - This is a warning message
+2025-05-04 17:43:56,506 - ERROR - This is an error message
+2025-05-04 17:43:56,507 - CRITICAL - This is a critical message
+2025-05-04 17:43:56,864 - INFO - select pg_catalog.version()
+2025-05-04 17:43:56,865 - INFO - [raw sql] ()
+2025-05-04 17:43:56,874 - INFO - select current_schema()
+2025-05-04 17:43:56,883 - INFO - [raw sql] ()
+2025-05-04 17:43:56,888 - INFO - show standard_conforming_strings
+2025-05-04 17:43:56,932 - INFO - [raw sql] ()
+2025-05-04 17:43:56,939 - INFO - BEGIN (implicit)
+2025-05-04 17:43:56,958 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:43:56,962 - INFO - [generated in 0.00392s] ()
+2025-05-04 17:43:57,007 - INFO - COMMIT
+2025-05-04 17:43:59,666 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:43:59,673 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:43:59,680 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:43:59,697 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:43:59,704 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:43:59,707 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:43:59,708 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:43:59,709 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:43:59,711 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:43:59,711 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:43:59,713 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:43:59,714 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:43:59,723 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:43:59,727 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:43:59,728 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:43:59,729 - DEBUG - Calling on_end with no data
+2025-05-04 17:43:59,731 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:43:59,740 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:43:59,763 - INFO - BEGIN (implicit)
+2025-05-04 17:43:59,780 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:43:59,793 - INFO - [generated in 0.01341s] ('example.com',)
+2025-05-04 17:43:59,880 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:43:59,882 - INFO - [cached since 0.1021s ago] ('example2.com',)
+2025-05-04 17:43:59,943 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:43:59,964 - INFO - [cached since 0.184s ago] ('invalidhostname',)
+2025-05-04 17:44:00,116 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:44:00,125 - INFO - [cached since 0.3453s ago] ('example3.com',)
+2025-05-04 17:44:00,256 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:44:00,265 - INFO - [cached since 0.4852s ago] ('example4.com',)
+2025-05-04 17:44:00,316 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:44:00,326 - INFO - [cached since 0.5463s ago] ('example.com',)
+2025-05-04 17:44:00,330 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:44:00,337 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:44:00,362 - INFO - [generated in 0.02486s] ('example.com', 'A')
+2025-05-04 17:44:00,368 - ERROR - No records found for example.com with type A
+2025-05-04 17:44:00,393 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:44:00,395 - INFO - [cached since 0.6156s ago] ('example5.com',)
+2025-05-04 17:44:00,483 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:44:00,488 - INFO - [cached since 0.7087s ago] ('example6.com',)
+2025-05-04 17:44:00,539 - INFO - COMMIT
+2025-05-04 17:44:57,028 - INFO - BEGIN (implicit)
+2025-05-04 17:44:57,030 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:44:57,032 - INFO - [cached since 60.08s ago] ()
+2025-05-04 17:44:57,037 - INFO - COMMIT
+2025-05-04 17:45:22,593 - DEBUG - This is a debug message
+2025-05-04 17:45:22,593 - INFO - This is an info message
+2025-05-04 17:45:22,594 - WARNING - This is a warning message
+2025-05-04 17:45:22,596 - ERROR - This is an error message
+2025-05-04 17:45:22,600 - CRITICAL - This is a critical message
+2025-05-04 17:45:22,679 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:45:22,686 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:45:22,688 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:45:22,690 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:45:22,692 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:45:22,695 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:45:22,704 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:45:22,705 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:45:22,709 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:45:22,713 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:45:22,716 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:45:22,718 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:45:22,722 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:45:22,723 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:45:22,728 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:45:22,730 - DEBUG - Calling on_end with no data
+2025-05-04 17:45:22,738 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:45:22,741 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:45:22,958 - INFO - select pg_catalog.version()
+2025-05-04 17:45:22,958 - INFO - [raw sql] ()
+2025-05-04 17:45:22,968 - INFO - select current_schema()
+2025-05-04 17:45:22,969 - INFO - [raw sql] ()
+2025-05-04 17:45:22,973 - INFO - show standard_conforming_strings
+2025-05-04 17:45:22,979 - INFO - [raw sql] ()
+2025-05-04 17:45:22,985 - INFO - BEGIN (implicit)
+2025-05-04 17:45:23,008 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:45:23,009 - INFO - [generated in 0.00164s] ()
+2025-05-04 17:45:23,016 - INFO - BEGIN (implicit)
+2025-05-04 17:45:23,026 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,028 - INFO - [generated in 0.00537s] ('example.com',)
+2025-05-04 17:45:23,060 - INFO - COMMIT
+2025-05-04 17:45:23,089 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,090 - INFO - [cached since 0.0678s ago] ('example2.com',)
+2025-05-04 17:45:23,094 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,097 - INFO - [cached since 0.07441s ago] ('invalidhostname',)
+2025-05-04 17:45:23,109 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,111 - INFO - [cached since 0.08854s ago] ('example3.com',)
+2025-05-04 17:45:23,118 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,120 - INFO - [cached since 0.09792s ago] ('example4.com',)
+2025-05-04 17:45:23,124 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,127 - INFO - [cached since 0.1047s ago] ('example.com',)
+2025-05-04 17:45:23,146 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:45:23,149 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:45:23,158 - INFO - [generated in 0.00937s] ('example.com', 'A')
+2025-05-04 17:45:23,175 - ERROR - No records found for example.com with type A
+2025-05-04 17:45:23,177 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,189 - INFO - [cached since 0.1662s ago] ('example5.com',)
+2025-05-04 17:45:23,192 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:45:23,194 - INFO - [cached since 0.172s ago] ('example6.com',)
+2025-05-04 17:45:23,198 - INFO - COMMIT
+2025-05-04 17:46:23,063 - INFO - BEGIN (implicit)
+2025-05-04 17:46:23,065 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:46:23,071 - INFO - [cached since 60.07s ago] ()
+2025-05-04 17:46:23,077 - INFO - COMMIT
+2025-05-04 17:47:19,630 - DEBUG - This is a debug message
+2025-05-04 17:47:19,630 - INFO - This is an info message
+2025-05-04 17:47:19,631 - WARNING - This is a warning message
+2025-05-04 17:47:19,631 - ERROR - This is an error message
+2025-05-04 17:47:19,632 - CRITICAL - This is a critical message
+2025-05-04 17:47:19,846 - DEBUG - Using selector: EpollSelector
+2025-05-04 17:47:19,848 - DEBUG - Using selector: EpollSelector
+2025-05-04 17:47:19,877 - DEBUG - Received request to add record for hostname: list-a-vvtdqo.com
+2025-05-04 17:47:19,988 - INFO - select pg_catalog.version()
+2025-05-04 17:47:19,988 - INFO - [raw sql] ()
+2025-05-04 17:47:19,992 - INFO - select current_schema()
+2025-05-04 17:47:19,993 - INFO - [raw sql] ()
+2025-05-04 17:47:19,995 - INFO - show standard_conforming_strings
+2025-05-04 17:47:19,996 - INFO - [raw sql] ()
+2025-05-04 17:47:20,000 - INFO - BEGIN (implicit)
+2025-05-04 17:47:20,006 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:47:20,006 - INFO - [generated in 0.00080s] ('list-a-vvtdqo.com',)
+2025-05-04 17:47:20,030 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 17:47:20,031 - INFO - [generated in 0.00093s] ('list-a-vvtdqo.com', 'A', '"[\\"192.168.123.1\\"]"', datetime.datetime(2025, 5, 4, 17, 47, 20, 27470), 300)
+2025-05-04 17:47:20,034 - INFO - COMMIT
+2025-05-04 17:47:20,044 - INFO - Record added for list-a-vvtdqo.com
+2025-05-04 17:47:20,047 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 17:47:20,104 - DEBUG - Received request to add record for hostname: list-txt-yrfmjl.com
+2025-05-04 17:47:20,105 - INFO - BEGIN (implicit)
+2025-05-04 17:47:20,107 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:47:20,107 - INFO - [cached since 0.1016s ago] ('list-txt-yrfmjl.com',)
+2025-05-04 17:47:20,114 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 17:47:20,117 - INFO - [cached since 0.08671s ago] ('list-txt-yrfmjl.com', 'TXT', '"[\\"v=spf1 include:_spf.example.com ~all\\"]"', datetime.datetime(2025, 5, 4, 17, 47, 20, 109849), 300)
+2025-05-04 17:47:20,120 - INFO - COMMIT
+2025-05-04 17:47:20,130 - INFO - Record added for list-txt-yrfmjl.com
+2025-05-04 17:47:20,133 - INFO - HTTP Request: POST http://test/api/dns/ "HTTP/1.1 200 OK"
+2025-05-04 17:47:20,187 - INFO - BEGIN (implicit)
+2025-05-04 17:47:20,188 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:47:20,188 - INFO - [cached since 0.1825s ago] ('list-a-vvtdqo.com',)
+2025-05-04 17:47:20,191 - INFO - ROLLBACK
+2025-05-04 17:47:20,195 - INFO - HTTP Request: GET http://test/api/dns/list-a-vvtdqo.com/records "HTTP/1.1 200 OK"
+2025-05-04 17:47:20,200 - INFO - BEGIN (implicit)
+2025-05-04 17:47:20,201 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:47:20,201 - INFO - [cached since 0.1957s ago] ('list-txt-yrfmjl.com',)
+2025-05-04 17:47:20,204 - INFO - ROLLBACK
+2025-05-04 17:47:20,207 - INFO - HTTP Request: GET http://test/api/dns/list-txt-yrfmjl.com/records "HTTP/1.1 200 OK"
+2025-05-04 17:47:20,209 - DEBUG - Using selector: EpollSelector
+2025-05-04 17:47:23,084 - INFO - BEGIN (implicit)
+2025-05-04 17:47:23,086 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:47:23,088 - INFO - [cached since 120.1s ago] ()
+2025-05-04 17:47:23,093 - INFO - COMMIT
+2025-05-04 17:48:23,099 - INFO - BEGIN (implicit)
+2025-05-04 17:48:23,105 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:48:23,113 - INFO - [cached since 180.1s ago] ()
+2025-05-04 17:48:23,123 - INFO - COMMIT
+2025-05-04 17:48:49,177 - DEBUG - This is a debug message
+2025-05-04 17:48:49,178 - INFO - This is an info message
+2025-05-04 17:48:49,179 - WARNING - This is a warning message
+2025-05-04 17:48:49,180 - ERROR - This is an error message
+2025-05-04 17:48:49,182 - CRITICAL - This is a critical message
+2025-05-04 17:48:49,284 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:48:49,293 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:48:49,294 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:48:49,297 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:48:49,298 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:48:49,300 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:48:49,301 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:48:49,302 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:48:49,308 - DEBUG - Calling on_part_data with data[145:828]
+2025-05-04 17:48:49,314 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:48:49,316 - DEBUG - Calling on_part_data with data[830:1144]
+2025-05-04 17:48:49,317 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:48:49,319 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:48:49,329 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:48:49,332 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:48:49,333 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:48:49,346 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:48:49,349 - DEBUG - Calling on_end with no data
+2025-05-04 17:48:49,351 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:48:49,352 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:48:49,634 - INFO - select pg_catalog.version()
+2025-05-04 17:48:49,635 - INFO - [raw sql] ()
+2025-05-04 17:48:49,645 - INFO - select current_schema()
+2025-05-04 17:48:49,647 - INFO - [raw sql] ()
+2025-05-04 17:48:49,660 - INFO - show standard_conforming_strings
+2025-05-04 17:48:49,661 - INFO - [raw sql] ()
+2025-05-04 17:48:49,665 - INFO - BEGIN (implicit)
+2025-05-04 17:48:49,686 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:48:49,698 - INFO - [generated in 0.01141s] ()
+2025-05-04 17:48:49,716 - INFO - BEGIN (implicit)
+2025-05-04 17:48:49,722 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,729 - INFO - [generated in 0.00742s] ('example.com',)
+2025-05-04 17:48:49,749 - INFO - COMMIT
+2025-05-04 17:48:49,774 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,777 - INFO - [cached since 0.05545s ago] ('example2.com',)
+2025-05-04 17:48:49,787 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,795 - INFO - [cached since 0.07346s ago] ('invalidhostname',)
+2025-05-04 17:48:49,815 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,818 - INFO - [cached since 0.09585s ago] ('example3.com',)
+2025-05-04 17:48:49,824 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,825 - INFO - [cached since 0.1036s ago] ('example4.com',)
+2025-05-04 17:48:49,829 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,840 - INFO - [cached since 0.1182s ago] ('example.com',)
+2025-05-04 17:48:49,842 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:48:49,854 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:48:49,860 - INFO - [generated in 0.01440s] ('example.com', 'A')
+2025-05-04 17:48:49,864 - ERROR - No records found for example.com with type A
+2025-05-04 17:48:49,866 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,876 - INFO - [cached since 0.1542s ago] ('example5.com',)
+2025-05-04 17:48:49,880 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:48:49,882 - INFO - [cached since 0.1598s ago] ('example6.com',)
+2025-05-04 17:48:49,885 - INFO - COMMIT
+2025-05-04 17:49:29,212 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:49:29,213 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:49:29,246 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:49:29,250 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:49:29,257 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:49:29,259 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:49:29,263 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:49:29,265 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:49:29,279 - DEBUG - Calling on_part_data with data[145:917]
+2025-05-04 17:49:29,282 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:29,283 - DEBUG - Calling on_part_data with data[919:1144]
+2025-05-04 17:49:29,285 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:29,288 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:49:29,289 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:29,290 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:49:29,295 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:29,298 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:49:29,299 - DEBUG - Calling on_end with no data
+2025-05-04 17:49:29,301 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:49:29,305 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:49:29,307 - INFO - BEGIN (implicit)
+2025-05-04 17:49:29,312 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,315 - INFO - [cached since 39.59s ago] ('example.com',)
+2025-05-04 17:49:29,340 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,380 - INFO - [cached since 39.66s ago] ('example2.com',)
+2025-05-04 17:49:29,397 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,411 - INFO - [cached since 39.69s ago] ('invalidhostname',)
+2025-05-04 17:49:29,427 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,461 - INFO - [cached since 39.74s ago] ('example3.com',)
+2025-05-04 17:49:29,541 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,553 - INFO - [cached since 39.83s ago] ('example4.com',)
+2025-05-04 17:49:29,565 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,580 - INFO - [cached since 39.86s ago] ('example.com',)
+2025-05-04 17:49:29,588 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:49:29,596 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:49:29,636 - INFO - [cached since 39.79s ago] ('example.com', 'A')
+2025-05-04 17:49:29,648 - ERROR - No records found for example.com with type A
+2025-05-04 17:49:29,652 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,675 - INFO - [cached since 39.95s ago] ('example5.com',)
+2025-05-04 17:49:29,697 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:29,719 - INFO - [cached since 40s ago] ('example6.com',)
+2025-05-04 17:49:29,729 - INFO - COMMIT
+2025-05-04 17:49:38,667 - DEBUG - This is a debug message
+2025-05-04 17:49:38,668 - INFO - This is an info message
+2025-05-04 17:49:38,669 - WARNING - This is a warning message
+2025-05-04 17:49:38,670 - ERROR - This is an error message
+2025-05-04 17:49:38,671 - CRITICAL - This is a critical message
+2025-05-04 17:49:38,837 - INFO - select pg_catalog.version()
+2025-05-04 17:49:38,838 - INFO - [raw sql] ()
+2025-05-04 17:49:38,843 - INFO - select current_schema()
+2025-05-04 17:49:38,845 - INFO - [raw sql] ()
+2025-05-04 17:49:38,850 - INFO - show standard_conforming_strings
+2025-05-04 17:49:38,852 - INFO - [raw sql] ()
+2025-05-04 17:49:38,862 - INFO - BEGIN (implicit)
+2025-05-04 17:49:38,880 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:49:38,888 - INFO - [generated in 0.00864s] ()
+2025-05-04 17:49:38,934 - INFO - COMMIT
+2025-05-04 17:49:39,282 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:49:39,337 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:49:39,341 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:49:39,351 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:49:39,354 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:49:39,359 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:49:39,361 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:49:39,363 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:49:39,366 - DEBUG - Calling on_part_data with data[145:798]
+2025-05-04 17:49:39,372 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:39,376 - DEBUG - Calling on_part_data with data[800:1062]
+2025-05-04 17:49:39,382 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:39,389 - DEBUG - Calling on_part_data with data[1064:1149]
+2025-05-04 17:49:39,390 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:39,397 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:49:39,403 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:49:39,405 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:49:39,406 - DEBUG - Calling on_end with no data
+2025-05-04 17:49:39,412 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:49:39,419 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:49:39,427 - INFO - BEGIN (implicit)
+2025-05-04 17:49:39,434 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,435 - INFO - [generated in 0.00200s] ('example.com',)
+2025-05-04 17:49:39,446 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,458 - INFO - [cached since 0.02452s ago] ('example2.com',)
+2025-05-04 17:49:39,462 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,465 - INFO - [cached since 0.03181s ago] ('invalidhostname',)
+2025-05-04 17:49:39,469 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,508 - INFO - [cached since 0.07462s ago] ('example3.com',)
+2025-05-04 17:49:39,513 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,520 - INFO - [cached since 0.08636s ago] ('example4.com',)
+2025-05-04 17:49:39,523 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,529 - INFO - [cached since 0.09524s ago] ('example.com',)
+2025-05-04 17:49:39,542 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:49:39,546 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:49:39,551 - INFO - [generated in 0.00516s] ('example.com', 'A')
+2025-05-04 17:49:39,558 - ERROR - No records found for example.com with type A
+2025-05-04 17:49:39,563 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,570 - INFO - [cached since 0.1364s ago] ('example5.com',)
+2025-05-04 17:49:39,574 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:49:39,596 - INFO - [cached since 0.1623s ago] ('example6.com',)
+2025-05-04 17:49:39,761 - INFO - COMMIT
+2025-05-04 17:50:07,099 - DEBUG - This is a debug message
+2025-05-04 17:50:07,100 - INFO - This is an info message
+2025-05-04 17:50:07,101 - WARNING - This is a warning message
+2025-05-04 17:50:07,103 - ERROR - This is an error message
+2025-05-04 17:50:07,105 - CRITICAL - This is a critical message
+2025-05-04 17:50:07,287 - INFO - select pg_catalog.version()
+2025-05-04 17:50:07,289 - INFO - [raw sql] ()
+2025-05-04 17:50:07,297 - INFO - select current_schema()
+2025-05-04 17:50:07,299 - INFO - [raw sql] ()
+2025-05-04 17:50:07,310 - INFO - show standard_conforming_strings
+2025-05-04 17:50:07,316 - INFO - [raw sql] ()
+2025-05-04 17:50:07,321 - INFO - BEGIN (implicit)
+2025-05-04 17:50:07,342 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:50:07,348 - INFO - [generated in 0.00599s] ()
+2025-05-04 17:50:07,376 - INFO - COMMIT
+2025-05-04 17:50:12,267 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:50:12,271 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:50:12,274 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:50:12,276 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:50:12,278 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:50:12,279 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:50:12,281 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:50:12,296 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:50:12,298 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:50:12,301 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:50:12,304 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:50:12,305 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:50:12,306 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:50:12,308 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:50:12,311 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:50:12,335 - DEBUG - Calling on_end with no data
+2025-05-04 17:50:12,344 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:50:12,364 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:50:12,369 - INFO - BEGIN (implicit)
+2025-05-04 17:50:12,378 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,380 - INFO - [generated in 0.00153s] ('example.com',)
+2025-05-04 17:50:12,385 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,389 - INFO - [cached since 0.01089s ago] ('example2.com',)
+2025-05-04 17:50:12,397 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,428 - INFO - [cached since 0.04965s ago] ('invalidhostname',)
+2025-05-04 17:50:12,450 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,482 - INFO - [cached since 0.1044s ago] ('example3.com',)
+2025-05-04 17:50:12,495 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,498 - INFO - [cached since 0.1202s ago] ('example4.com',)
+2025-05-04 17:50:12,517 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,551 - INFO - [cached since 0.1729s ago] ('example.com',)
+2025-05-04 17:50:12,574 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:50:12,586 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:50:12,600 - INFO - [generated in 0.01417s] ('example.com', 'A')
+2025-05-04 17:50:12,610 - ERROR - No records found for example.com with type A
+2025-05-04 17:50:12,616 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,631 - INFO - [cached since 0.2529s ago] ('example5.com',)
+2025-05-04 17:50:12,643 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:50:12,645 - INFO - [cached since 0.2671s ago] ('example6.com',)
+2025-05-04 17:50:12,651 - INFO - COMMIT
+2025-05-04 17:51:06,338 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:51:06,338 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:51:06,409 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:51:06,447 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:51:06,455 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:51:06,470 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:51:06,484 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:51:06,502 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:51:06,523 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:51:06,524 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:51:06,539 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:51:06,541 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:51:06,570 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:51:06,623 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:51:06,625 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:51:06,640 - DEBUG - Calling on_end with no data
+2025-05-04 17:51:06,660 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:51:06,663 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:51:06,675 - INFO - BEGIN (implicit)
+2025-05-04 17:51:06,686 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,691 - INFO - [cached since 54.35s ago] ('example.com',)
+2025-05-04 17:51:06,731 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,738 - INFO - [cached since 54.4s ago] ('example2.com',)
+2025-05-04 17:51:06,767 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,773 - INFO - [cached since 54.43s ago] ('invalidhostname',)
+2025-05-04 17:51:06,792 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,804 - INFO - [cached since 54.47s ago] ('example3.com',)
+2025-05-04 17:51:06,822 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,824 - INFO - [cached since 54.49s ago] ('example4.com',)
+2025-05-04 17:51:06,851 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,856 - INFO - [cached since 54.52s ago] ('example.com',)
+2025-05-04 17:51:06,866 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:51:06,873 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:51:06,885 - INFO - [cached since 54.34s ago] ('example.com', 'A')
+2025-05-04 17:51:06,887 - ERROR - No records found for example.com with type A
+2025-05-04 17:51:06,897 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,905 - INFO - [cached since 54.57s ago] ('example5.com',)
+2025-05-04 17:51:06,917 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:06,920 - INFO - [cached since 54.58s ago] ('example6.com',)
+2025-05-04 17:51:06,925 - INFO - COMMIT
+2025-05-04 17:51:07,339 - INFO - BEGIN (implicit)
+2025-05-04 17:51:07,340 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:51:07,342 - INFO - [cached since 60.04s ago] ()
+2025-05-04 17:51:07,348 - INFO - COMMIT
+2025-05-04 17:51:13,713 - DEBUG - This is a debug message
+2025-05-04 17:51:13,717 - INFO - This is an info message
+2025-05-04 17:51:13,718 - WARNING - This is a warning message
+2025-05-04 17:51:13,720 - ERROR - This is an error message
+2025-05-04 17:51:13,721 - CRITICAL - This is a critical message
+2025-05-04 17:51:13,797 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:51:13,797 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:51:13,804 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:51:13,813 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:51:13,815 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:51:13,819 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:51:13,822 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:51:13,823 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:51:13,825 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:51:13,826 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:51:13,838 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:51:13,839 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:51:13,841 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:51:13,843 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:51:13,844 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:51:13,847 - DEBUG - Calling on_end with no data
+2025-05-04 17:51:13,850 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:51:13,851 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:51:14,085 - INFO - select pg_catalog.version()
+2025-05-04 17:51:14,086 - INFO - [raw sql] ()
+2025-05-04 17:51:14,107 - INFO - select current_schema()
+2025-05-04 17:51:14,108 - INFO - [raw sql] ()
+2025-05-04 17:51:14,113 - INFO - show standard_conforming_strings
+2025-05-04 17:51:14,115 - INFO - [raw sql] ()
+2025-05-04 17:51:14,122 - INFO - BEGIN (implicit)
+2025-05-04 17:51:14,143 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:51:14,145 - INFO - [generated in 0.00338s] ()
+2025-05-04 17:51:14,152 - INFO - BEGIN (implicit)
+2025-05-04 17:51:14,164 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,165 - INFO - [generated in 0.00111s] ('example.com',)
+2025-05-04 17:51:14,195 - INFO - COMMIT
+2025-05-04 17:51:14,216 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,218 - INFO - [cached since 0.05361s ago] ('example2.com',)
+2025-05-04 17:51:14,222 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,231 - INFO - [cached since 0.06638s ago] ('invalidhostname',)
+2025-05-04 17:51:14,238 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,242 - INFO - [cached since 0.07768s ago] ('example3.com',)
+2025-05-04 17:51:14,253 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,254 - INFO - [cached since 0.09015s ago] ('example4.com',)
+2025-05-04 17:51:14,259 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,262 - INFO - [cached since 0.09759s ago] ('example.com',)
+2025-05-04 17:51:14,276 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:51:14,281 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:51:14,301 - INFO - [generated in 0.02055s] ('example.com', 'A')
+2025-05-04 17:51:14,307 - ERROR - No records found for example.com with type A
+2025-05-04 17:51:14,315 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,319 - INFO - [cached since 0.1546s ago] ('example5.com',)
+2025-05-04 17:51:14,331 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:51:14,336 - INFO - [cached since 0.1722s ago] ('example6.com',)
+2025-05-04 17:51:14,347 - INFO - COMMIT
+2025-05-04 17:52:14,259 - INFO - BEGIN (implicit)
+2025-05-04 17:52:14,270 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:52:14,275 - INFO - [cached since 60.14s ago] ()
+2025-05-04 17:52:14,319 - INFO - COMMIT
+2025-05-04 17:52:54,946 - DEBUG - This is a debug message
+2025-05-04 17:52:54,947 - INFO - This is an info message
+2025-05-04 17:52:54,948 - WARNING - This is a warning message
+2025-05-04 17:52:54,951 - ERROR - This is an error message
+2025-05-04 17:52:54,952 - CRITICAL - This is a critical message
+2025-05-04 17:52:55,022 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:52:55,023 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:52:55,028 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:52:55,029 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:52:55,031 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:52:55,032 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:52:55,033 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:52:55,037 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:52:55,039 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:52:55,040 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:52:55,041 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:52:55,041 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:52:55,042 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:52:55,044 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:52:55,044 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:52:55,045 - DEBUG - Calling on_end with no data
+2025-05-04 17:52:55,047 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:52:55,048 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:52:55,296 - INFO - select pg_catalog.version()
+2025-05-04 17:52:55,303 - INFO - [raw sql] ()
+2025-05-04 17:52:55,308 - INFO - select current_schema()
+2025-05-04 17:52:55,313 - INFO - [raw sql] ()
+2025-05-04 17:52:55,321 - INFO - show standard_conforming_strings
+2025-05-04 17:52:55,322 - INFO - [raw sql] ()
+2025-05-04 17:52:55,331 - INFO - BEGIN (implicit)
+2025-05-04 17:52:55,347 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:52:55,349 - INFO - [generated in 0.00189s] ()
+2025-05-04 17:52:55,365 - INFO - BEGIN (implicit)
+2025-05-04 17:52:55,371 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,375 - INFO - [generated in 0.00429s] ('example.com',)
+2025-05-04 17:52:55,404 - INFO - Deleting expired record: list-a-vvtdqo.com
+2025-05-04 17:52:55,411 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,412 - INFO - [generated in 0.00157s] ('list-a-vvtdqo.com',)
+2025-05-04 17:52:55,428 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,431 - INFO - [cached since 0.05996s ago] ('example2.com',)
+2025-05-04 17:52:55,437 - INFO - Deleting expired record: list-txt-yrfmjl.com
+2025-05-04 17:52:55,440 - INFO - DELETE FROM dns_records WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,447 - INFO - [cached since 0.03598s ago] ('list-txt-yrfmjl.com',)
+2025-05-04 17:52:55,454 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,456 - INFO - [cached since 0.085s ago] ('invalidhostname',)
+2025-05-04 17:52:55,459 - INFO - COMMIT
+2025-05-04 17:52:55,475 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,519 - INFO - [cached since 0.148s ago] ('example3.com',)
+2025-05-04 17:52:55,529 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,561 - INFO - [cached since 0.1897s ago] ('example4.com',)
+2025-05-04 17:52:55,564 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,587 - INFO - [cached since 0.216s ago] ('example.com',)
+2025-05-04 17:52:55,612 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:52:55,643 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:52:55,689 - INFO - [generated in 0.04636s] ('example.com', 'A')
+2025-05-04 17:52:55,704 - ERROR - No records found for example.com with type A
+2025-05-04 17:52:55,707 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,712 - INFO - [cached since 0.3406s ago] ('example5.com',)
+2025-05-04 17:52:55,721 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:52:55,766 - INFO - [cached since 0.3955s ago] ('example6.com',)
+2025-05-04 17:52:55,775 - INFO - COMMIT
+2025-05-04 17:53:55,571 - INFO - BEGIN (implicit)
+2025-05-04 17:53:55,576 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:53:55,579 - INFO - [cached since 60.23s ago] ()
+2025-05-04 17:53:55,585 - INFO - COMMIT
+2025-05-04 17:54:55,595 - INFO - BEGIN (implicit)
+2025-05-04 17:54:55,597 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:54:55,599 - INFO - [cached since 120.2s ago] ()
+2025-05-04 17:54:55,606 - INFO - COMMIT
+2025-05-04 17:55:28,130 - DEBUG - This is a debug message
+2025-05-04 17:55:28,131 - INFO - This is an info message
+2025-05-04 17:55:28,132 - WARNING - This is a warning message
+2025-05-04 17:55:28,134 - ERROR - This is an error message
+2025-05-04 17:55:28,137 - CRITICAL - This is a critical message
+2025-05-04 17:55:28,290 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:55:28,305 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:55:28,405 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:55:28,442 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:55:28,485 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:55:28,486 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:55:28,538 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:55:28,543 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:55:28,553 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:55:28,598 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:28,600 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:55:28,613 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:28,616 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:55:28,618 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:28,635 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:55:28,646 - DEBUG - Calling on_end with no data
+2025-05-04 17:55:28,655 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:55:28,663 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:55:29,066 - INFO - select pg_catalog.version()
+2025-05-04 17:55:29,129 - INFO - [raw sql] ()
+2025-05-04 17:55:29,168 - INFO - select current_schema()
+2025-05-04 17:55:29,197 - INFO - [raw sql] ()
+2025-05-04 17:55:29,207 - INFO - show standard_conforming_strings
+2025-05-04 17:55:29,219 - INFO - [raw sql] ()
+2025-05-04 17:55:29,224 - INFO - BEGIN (implicit)
+2025-05-04 17:55:29,246 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:55:29,248 - INFO - [generated in 0.00237s] ()
+2025-05-04 17:55:29,272 - INFO - BEGIN (implicit)
+2025-05-04 17:55:29,285 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,288 - INFO - [generated in 0.00366s] ('example.com',)
+2025-05-04 17:55:29,328 - INFO - COMMIT
+2025-05-04 17:55:29,379 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,399 - INFO - [cached since 0.1186s ago] ('example2.com',)
+2025-05-04 17:55:29,408 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,507 - INFO - [cached since 0.2266s ago] ('invalidhostname',)
+2025-05-04 17:55:29,511 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,599 - INFO - [cached since 0.318s ago] ('example3.com',)
+2025-05-04 17:55:29,629 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,649 - INFO - [cached since 0.3686s ago] ('example4.com',)
+2025-05-04 17:55:29,700 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,712 - INFO - [cached since 0.4312s ago] ('example.com',)
+2025-05-04 17:55:29,729 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:55:29,781 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:55:29,795 - INFO - [generated in 0.01425s] ('example.com', 'A')
+2025-05-04 17:55:29,805 - ERROR - No records found for example.com with type A
+2025-05-04 17:55:29,817 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,846 - INFO - [cached since 0.5647s ago] ('example5.com',)
+2025-05-04 17:55:29,867 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:29,876 - INFO - [cached since 0.5955s ago] ('example6.com',)
+2025-05-04 17:55:29,914 - INFO - COMMIT
+2025-05-04 17:55:45,213 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:55:45,214 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:55:45,217 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:55:45,238 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:55:45,245 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:55:45,251 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:55:45,253 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:55:45,255 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:55:45,260 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:55:45,262 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:45,267 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:55:45,270 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:45,286 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:55:45,287 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:45,289 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:55:45,290 - DEBUG - Calling on_end with no data
+2025-05-04 17:55:45,293 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:55:45,294 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:55:45,296 - INFO - BEGIN (implicit)
+2025-05-04 17:55:45,299 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,301 - INFO - [cached since 16.02s ago] ('example.com',)
+2025-05-04 17:55:45,305 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,308 - INFO - [cached since 16.03s ago] ('example2.com',)
+2025-05-04 17:55:45,314 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,317 - INFO - [cached since 16.04s ago] ('invalidhostname',)
+2025-05-04 17:55:45,327 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,328 - INFO - [cached since 16.05s ago] ('example3.com',)
+2025-05-04 17:55:45,335 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,338 - INFO - [cached since 16.06s ago] ('example4.com',)
+2025-05-04 17:55:45,342 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,343 - INFO - [cached since 16.06s ago] ('example.com',)
+2025-05-04 17:55:45,346 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:55:45,348 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:55:45,350 - INFO - [cached since 15.57s ago] ('example.com', 'A')
+2025-05-04 17:55:45,356 - ERROR - No records found for example.com with type A
+2025-05-04 17:55:45,359 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,360 - INFO - [cached since 16.08s ago] ('example5.com',)
+2025-05-04 17:55:45,363 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:45,366 - INFO - [cached since 16.08s ago] ('example6.com',)
+2025-05-04 17:55:45,369 - INFO - COMMIT
+2025-05-04 17:55:51,601 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:55:51,602 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:55:51,657 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:55:51,670 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:55:51,672 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:55:51,674 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:55:51,676 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:55:51,677 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:55:51,681 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:55:51,685 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:51,688 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:55:51,691 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:51,694 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:55:51,696 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:55:51,706 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:55:51,708 - DEBUG - Calling on_end with no data
+2025-05-04 17:55:51,715 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:55:51,717 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:55:51,722 - INFO - BEGIN (implicit)
+2025-05-04 17:55:51,727 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,741 - INFO - [cached since 22.46s ago] ('example.com',)
+2025-05-04 17:55:51,754 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,756 - INFO - [cached since 22.48s ago] ('example2.com',)
+2025-05-04 17:55:51,762 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,773 - INFO - [cached since 22.49s ago] ('invalidhostname',)
+2025-05-04 17:55:51,777 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,784 - INFO - [cached since 22.5s ago] ('example3.com',)
+2025-05-04 17:55:51,789 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,817 - INFO - [cached since 22.54s ago] ('example4.com',)
+2025-05-04 17:55:51,824 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,826 - INFO - [cached since 22.54s ago] ('example.com',)
+2025-05-04 17:55:51,828 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:55:51,837 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:55:51,852 - INFO - [cached since 22.07s ago] ('example.com', 'A')
+2025-05-04 17:55:51,856 - ERROR - No records found for example.com with type A
+2025-05-04 17:55:51,858 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,860 - INFO - [cached since 22.58s ago] ('example5.com',)
+2025-05-04 17:55:51,874 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:55:51,892 - INFO - [cached since 22.61s ago] ('example6.com',)
+2025-05-04 17:55:51,908 - INFO - COMMIT
+2025-05-04 17:56:29,346 - INFO - BEGIN (implicit)
+2025-05-04 17:56:29,347 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:56:29,349 - INFO - [cached since 60.11s ago] ()
+2025-05-04 17:56:29,354 - INFO - COMMIT
+2025-05-04 17:57:29,357 - INFO - BEGIN (implicit)
+2025-05-04 17:57:29,360 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:57:29,363 - INFO - [cached since 120.1s ago] ()
+2025-05-04 17:57:29,371 - INFO - COMMIT
+2025-05-04 17:57:52,215 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:57:52,262 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:57:52,264 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:57:52,277 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:57:52,280 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:57:52,284 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:57:52,285 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:57:52,296 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:57:52,301 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:57:52,322 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:57:52,333 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:57:52,347 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:57:52,350 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:57:52,355 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:57:52,372 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:57:52,640 - DEBUG - Calling on_end with no data
+2025-05-04 17:57:52,647 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:57:52,689 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:57:52,705 - INFO - BEGIN (implicit)
+2025-05-04 17:57:52,718 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:52,738 - INFO - [cached since 143.5s ago] ('example.com',)
+2025-05-04 17:57:52,756 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:52,769 - INFO - [cached since 143.5s ago] ('example2.com',)
+2025-05-04 17:57:52,797 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:52,831 - INFO - [cached since 143.6s ago] ('invalidhostname',)
+2025-05-04 17:57:52,836 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:52,856 - INFO - [cached since 143.6s ago] ('example3.com',)
+2025-05-04 17:57:52,863 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:52,885 - INFO - [cached since 143.6s ago] ('example4.com',)
+2025-05-04 17:57:52,894 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:52,908 - INFO - [cached since 143.6s ago] ('example.com',)
+2025-05-04 17:57:52,911 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:57:52,918 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:57:52,935 - INFO - [cached since 143.2s ago] ('example.com', 'A')
+2025-05-04 17:57:53,005 - ERROR - No records found for example.com with type A
+2025-05-04 17:57:53,007 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:53,022 - INFO - [cached since 143.7s ago] ('example5.com',)
+2025-05-04 17:57:53,070 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:53,081 - INFO - [cached since 143.8s ago] ('example6.com',)
+2025-05-04 17:57:53,090 - INFO - COMMIT
+2025-05-04 17:57:58,975 - DEBUG - This is a debug message
+2025-05-04 17:57:58,976 - INFO - This is an info message
+2025-05-04 17:57:58,977 - WARNING - This is a warning message
+2025-05-04 17:57:58,978 - ERROR - This is an error message
+2025-05-04 17:57:58,981 - CRITICAL - This is a critical message
+2025-05-04 17:57:59,048 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:57:59,049 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:57:59,049 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:57:59,052 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:57:59,057 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:57:59,063 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:57:59,065 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:57:59,068 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:57:59,070 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:57:59,080 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:57:59,085 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:57:59,094 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:57:59,096 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:57:59,101 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:57:59,104 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:57:59,110 - DEBUG - Calling on_end with no data
+2025-05-04 17:57:59,114 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:57:59,116 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:57:59,353 - INFO - select pg_catalog.version()
+2025-05-04 17:57:59,358 - INFO - [raw sql] ()
+2025-05-04 17:57:59,368 - INFO - select current_schema()
+2025-05-04 17:57:59,375 - INFO - [raw sql] ()
+2025-05-04 17:57:59,383 - INFO - show standard_conforming_strings
+2025-05-04 17:57:59,384 - INFO - [raw sql] ()
+2025-05-04 17:57:59,388 - INFO - BEGIN (implicit)
+2025-05-04 17:57:59,424 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:57:59,425 - INFO - [generated in 0.00102s] ()
+2025-05-04 17:57:59,450 - INFO - BEGIN (implicit)
+2025-05-04 17:57:59,457 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,459 - INFO - [generated in 0.00257s] ('example.com',)
+2025-05-04 17:57:59,503 - INFO - COMMIT
+2025-05-04 17:57:59,525 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,529 - INFO - [cached since 0.07237s ago] ('example2.com',)
+2025-05-04 17:57:59,535 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,543 - INFO - [cached since 0.08651s ago] ('invalidhostname',)
+2025-05-04 17:57:59,551 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,566 - INFO - [cached since 0.1093s ago] ('example3.com',)
+2025-05-04 17:57:59,570 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,574 - INFO - [cached since 0.1172s ago] ('example4.com',)
+2025-05-04 17:57:59,587 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,597 - INFO - [cached since 0.1409s ago] ('example.com',)
+2025-05-04 17:57:59,668 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:57:59,672 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:57:59,713 - INFO - [generated in 0.04124s] ('example.com', 'A')
+2025-05-04 17:57:59,767 - ERROR - No records found for example.com with type A
+2025-05-04 17:57:59,772 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,823 - INFO - [cached since 0.3669s ago] ('example5.com',)
+2025-05-04 17:57:59,831 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:57:59,840 - INFO - [cached since 0.3833s ago] ('example6.com',)
+2025-05-04 17:57:59,847 - INFO - COMMIT
+2025-05-04 17:58:59,510 - INFO - BEGIN (implicit)
+2025-05-04 17:58:59,512 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:58:59,515 - INFO - [cached since 60.09s ago] ()
+2025-05-04 17:58:59,519 - INFO - COMMIT
+2025-05-04 17:59:25,981 - DEBUG - This is a debug message
+2025-05-04 17:59:25,982 - INFO - This is an info message
+2025-05-04 17:59:25,983 - WARNING - This is a warning message
+2025-05-04 17:59:25,985 - ERROR - This is an error message
+2025-05-04 17:59:25,986 - CRITICAL - This is a critical message
+2025-05-04 17:59:26,081 - DEBUG - Calling on_part_begin with no data
+2025-05-04 17:59:26,086 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 17:59:26,088 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 17:59:26,089 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:59:26,091 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 17:59:26,092 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 17:59:26,094 - DEBUG - Calling on_header_end with no data
+2025-05-04 17:59:26,095 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 17:59:26,097 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 17:59:26,105 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:59:26,106 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 17:59:26,108 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:59:26,111 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 17:59:26,113 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 17:59:26,120 - DEBUG - Calling on_part_end with no data
+2025-05-04 17:59:26,123 - DEBUG - Calling on_end with no data
+2025-05-04 17:59:26,124 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 17:59:26,126 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 17:59:26,369 - INFO - select pg_catalog.version()
+2025-05-04 17:59:26,371 - INFO - [raw sql] ()
+2025-05-04 17:59:26,379 - INFO - select current_schema()
+2025-05-04 17:59:26,389 - INFO - [raw sql] ()
+2025-05-04 17:59:26,399 - INFO - show standard_conforming_strings
+2025-05-04 17:59:26,400 - INFO - [raw sql] ()
+2025-05-04 17:59:26,412 - INFO - BEGIN (implicit)
+2025-05-04 17:59:26,427 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 17:59:26,429 - INFO - [generated in 0.00147s] ()
+2025-05-04 17:59:26,438 - INFO - BEGIN (implicit)
+2025-05-04 17:59:26,450 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,452 - INFO - [generated in 0.00260s] ('example.com',)
+2025-05-04 17:59:26,507 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,509 - INFO - [cached since 0.05929s ago] ('example2.com',)
+2025-05-04 17:59:26,513 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,522 - INFO - [cached since 0.07197s ago] ('invalidhostname',)
+2025-05-04 17:59:26,526 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,537 - INFO - [cached since 0.08742s ago] ('example3.com',)
+2025-05-04 17:59:26,542 - INFO - COMMIT
+2025-05-04 17:59:26,548 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,569 - INFO - [cached since 0.1195s ago] ('example4.com',)
+2025-05-04 17:59:26,574 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,577 - INFO - [cached since 0.1272s ago] ('example.com',)
+2025-05-04 17:59:26,591 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 17:59:26,596 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 17:59:26,626 - INFO - [generated in 0.03022s] ('example.com', 'A')
+2025-05-04 17:59:26,631 - ERROR - No records found for example.com with type A
+2025-05-04 17:59:26,639 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,641 - INFO - [cached since 0.191s ago] ('example5.com',)
+2025-05-04 17:59:26,644 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 17:59:26,645 - INFO - [cached since 0.1956s ago] ('example6.com',)
+2025-05-04 17:59:26,659 - INFO - COMMIT
+2025-05-04 18:00:26,994 - DEBUG - This is a debug message
+2025-05-04 18:00:26,995 - INFO - This is an info message
+2025-05-04 18:00:26,996 - WARNING - This is a warning message
+2025-05-04 18:00:27,000 - ERROR - This is an error message
+2025-05-04 18:00:27,004 - CRITICAL - This is a critical message
+2025-05-04 18:00:27,094 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:00:27,095 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:00:27,107 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:00:27,109 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:00:27,111 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:00:27,112 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:00:27,113 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:00:27,116 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:00:27,117 - DEBUG - Calling on_part_data with data[145:828]
+2025-05-04 18:00:27,128 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:00:27,130 - DEBUG - Calling on_part_data with data[830:1144]
+2025-05-04 18:00:27,130 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:00:27,146 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:00:27,147 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:00:27,149 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:00:27,150 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:00:27,154 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:00:27,155 - DEBUG - Calling on_end with no data
+2025-05-04 18:00:27,157 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:00:27,176 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:00:27,377 - INFO - select pg_catalog.version()
+2025-05-04 18:00:27,379 - INFO - [raw sql] ()
+2025-05-04 18:00:27,385 - INFO - select current_schema()
+2025-05-04 18:00:27,386 - INFO - [raw sql] ()
+2025-05-04 18:00:27,396 - INFO - show standard_conforming_strings
+2025-05-04 18:00:27,398 - INFO - [raw sql] ()
+2025-05-04 18:00:27,415 - INFO - BEGIN (implicit)
+2025-05-04 18:00:27,427 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:00:27,428 - INFO - [generated in 0.00132s] ()
+2025-05-04 18:00:27,434 - INFO - BEGIN (implicit)
+2025-05-04 18:00:27,456 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,457 - INFO - [generated in 0.00135s] ('example.com',)
+2025-05-04 18:00:27,500 - INFO - COMMIT
+2025-05-04 18:00:27,512 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,512 - INFO - [cached since 0.0563s ago] ('example2.com',)
+2025-05-04 18:00:27,516 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,518 - INFO - [cached since 0.06247s ago] ('invalidhostname',)
+2025-05-04 18:00:27,523 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,526 - INFO - [cached since 0.06942s ago] ('example3.com',)
+2025-05-04 18:00:27,539 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,541 - INFO - [cached since 0.08532s ago] ('example4.com',)
+2025-05-04 18:00:27,549 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,554 - INFO - [cached since 0.09837s ago] ('example.com',)
+2025-05-04 18:00:27,557 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:00:27,566 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:00:27,570 - INFO - [generated in 0.00459s] ('example.com', 'A')
+2025-05-04 18:00:27,581 - ERROR - No records found for example.com with type A
+2025-05-04 18:00:27,582 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,586 - INFO - [cached since 0.13s ago] ('example5.com',)
+2025-05-04 18:00:27,593 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:00:27,595 - INFO - [cached since 0.1395s ago] ('example6.com',)
+2025-05-04 18:00:27,599 - INFO - COMMIT
+2025-05-04 18:01:27,483 - INFO - BEGIN (implicit)
+2025-05-04 18:01:27,485 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:01:27,489 - INFO - [cached since 60.09s ago] ()
+2025-05-04 18:01:27,492 - INFO - COMMIT
+2025-05-04 18:02:27,501 - INFO - BEGIN (implicit)
+2025-05-04 18:02:27,503 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:02:27,504 - INFO - [cached since 120.1s ago] ()
+2025-05-04 18:02:27,510 - INFO - COMMIT
+2025-05-04 18:03:27,512 - INFO - BEGIN (implicit)
+2025-05-04 18:03:27,514 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:03:27,515 - INFO - [cached since 180.1s ago] ()
+2025-05-04 18:03:27,518 - INFO - COMMIT
+2025-05-04 18:04:27,521 - INFO - BEGIN (implicit)
+2025-05-04 18:04:27,523 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:04:27,533 - INFO - [cached since 240.1s ago] ()
+2025-05-04 18:04:27,535 - INFO - COMMIT
+2025-05-04 18:04:54,123 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:04:54,125 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:04:54,128 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:04:54,138 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:04:54,158 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:04:54,160 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:04:54,163 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:04:54,170 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:04:54,171 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 18:04:54,182 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:04:54,187 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:04:54,189 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:04:54,193 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:04:54,194 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:04:54,196 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:04:54,197 - DEBUG - Calling on_end with no data
+2025-05-04 18:04:54,209 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:04:54,210 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:04:54,212 - INFO - BEGIN (implicit)
+2025-05-04 18:04:54,215 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,218 - INFO - [cached since 266.8s ago] ('example.com',)
+2025-05-04 18:04:54,227 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,231 - INFO - [cached since 266.8s ago] ('example2.com',)
+2025-05-04 18:04:54,234 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,237 - INFO - [cached since 266.8s ago] ('invalidhostname',)
+2025-05-04 18:04:54,249 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,261 - INFO - [cached since 266.8s ago] ('example3.com',)
+2025-05-04 18:04:54,264 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,273 - INFO - [cached since 266.8s ago] ('example4.com',)
+2025-05-04 18:04:54,292 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,295 - INFO - [cached since 266.9s ago] ('example.com',)
+2025-05-04 18:04:54,326 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:04:54,331 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:04:54,342 - INFO - [cached since 266.8s ago] ('example.com', 'A')
+2025-05-04 18:04:54,364 - ERROR - No records found for example.com with type A
+2025-05-04 18:04:54,373 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,377 - INFO - [cached since 266.9s ago] ('example5.com',)
+2025-05-04 18:04:54,382 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:04:54,399 - INFO - [cached since 267s ago] ('example6.com',)
+2025-05-04 18:04:54,497 - INFO - COMMIT
+2025-05-04 18:05:03,174 - DEBUG - This is a debug message
+2025-05-04 18:05:03,174 - INFO - This is an info message
+2025-05-04 18:05:03,175 - WARNING - This is a warning message
+2025-05-04 18:05:03,176 - ERROR - This is an error message
+2025-05-04 18:05:03,177 - CRITICAL - This is a critical message
+2025-05-04 18:05:03,339 - INFO - select pg_catalog.version()
+2025-05-04 18:05:03,340 - INFO - [raw sql] ()
+2025-05-04 18:05:03,345 - INFO - select current_schema()
+2025-05-04 18:05:03,347 - INFO - [raw sql] ()
+2025-05-04 18:05:03,353 - INFO - show standard_conforming_strings
+2025-05-04 18:05:03,360 - INFO - [raw sql] ()
+2025-05-04 18:05:03,368 - INFO - BEGIN (implicit)
+2025-05-04 18:05:03,386 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:05:03,387 - INFO - [generated in 0.00127s] ()
+2025-05-04 18:05:03,425 - INFO - COMMIT
+2025-05-04 18:05:09,227 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:05:09,237 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:05:09,238 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:05:09,240 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:05:09,242 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:05:09,244 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:05:09,245 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:05:09,254 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:05:09,257 - DEBUG - Calling on_part_data with data[145:828]
+2025-05-04 18:05:09,258 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:05:09,263 - DEBUG - Calling on_part_data with data[830:1144]
+2025-05-04 18:05:09,265 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:05:09,266 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:05:09,268 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:05:09,270 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:05:09,271 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:05:09,275 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:05:09,278 - DEBUG - Calling on_end with no data
+2025-05-04 18:05:09,281 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:05:09,283 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:05:09,287 - INFO - BEGIN (implicit)
+2025-05-04 18:05:09,296 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,298 - INFO - [generated in 0.00226s] ('example.com',)
+2025-05-04 18:05:09,311 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,315 - INFO - [cached since 0.0197s ago] ('example2.com',)
+2025-05-04 18:05:09,324 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,400 - INFO - [cached since 0.104s ago] ('invalidhostname',)
+2025-05-04 18:05:09,404 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,489 - INFO - [cached since 0.1933s ago] ('example3.com',)
+2025-05-04 18:05:09,594 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,633 - INFO - [cached since 0.3374s ago] ('example4.com',)
+2025-05-04 18:05:09,649 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,667 - INFO - [cached since 0.3715s ago] ('example.com',)
+2025-05-04 18:05:09,675 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:05:09,692 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:05:09,697 - INFO - [generated in 0.00531s] ('example.com', 'A')
+2025-05-04 18:05:09,703 - ERROR - No records found for example.com with type A
+2025-05-04 18:05:09,719 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,734 - INFO - [cached since 0.4388s ago] ('example5.com',)
+2025-05-04 18:05:09,740 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:05:09,750 - INFO - [cached since 0.4545s ago] ('example6.com',)
+2025-05-04 18:05:09,757 - INFO - COMMIT
+2025-05-04 18:06:03,437 - INFO - BEGIN (implicit)
+2025-05-04 18:06:03,439 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:06:03,442 - INFO - [cached since 60.06s ago] ()
+2025-05-04 18:06:03,446 - INFO - COMMIT
+2025-05-04 18:07:03,453 - INFO - BEGIN (implicit)
+2025-05-04 18:07:03,469 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:07:03,479 - INFO - [cached since 120.1s ago] ()
+2025-05-04 18:07:03,483 - INFO - COMMIT
+2025-05-04 18:07:33,210 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:07:33,212 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:07:33,214 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:07:33,227 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:33,229 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:07:33,238 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:07:33,244 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:33,246 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:07:33,256 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 18:07:33,272 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:33,280 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:07:33,282 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:33,294 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:07:33,298 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:33,313 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:07:33,326 - DEBUG - Calling on_end with no data
+2025-05-04 18:07:33,336 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:07:33,338 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:07:33,340 - INFO - BEGIN (implicit)
+2025-05-04 18:07:33,344 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,346 - INFO - [cached since 144s ago] ('example.com',)
+2025-05-04 18:07:33,360 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,376 - INFO - [cached since 144.1s ago] ('example2.com',)
+2025-05-04 18:07:33,379 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,395 - INFO - [cached since 144.1s ago] ('invalidhostname',)
+2025-05-04 18:07:33,404 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,411 - INFO - [cached since 144.1s ago] ('example3.com',)
+2025-05-04 18:07:33,416 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,423 - INFO - [cached since 144.1s ago] ('example4.com',)
+2025-05-04 18:07:33,430 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,440 - INFO - [cached since 144.1s ago] ('example.com',)
+2025-05-04 18:07:33,445 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:07:33,461 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:07:33,463 - INFO - [cached since 143.8s ago] ('example.com', 'A')
+2025-05-04 18:07:33,471 - ERROR - No records found for example.com with type A
+2025-05-04 18:07:33,476 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,494 - INFO - [cached since 144.2s ago] ('example5.com',)
+2025-05-04 18:07:33,497 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:33,499 - INFO - [cached since 144.2s ago] ('example6.com',)
+2025-05-04 18:07:33,508 - INFO - COMMIT
+2025-05-04 18:07:36,405 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:07:36,406 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:07:36,407 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:07:36,408 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:36,440 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:07:36,444 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:07:36,445 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:36,446 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:07:36,451 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 18:07:36,452 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:36,453 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:07:36,456 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:36,458 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:07:36,459 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:36,460 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:07:36,462 - DEBUG - Calling on_end with no data
+2025-05-04 18:07:36,464 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:07:36,467 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:07:36,488 - INFO - BEGIN (implicit)
+2025-05-04 18:07:36,490 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,492 - INFO - [cached since 147.2s ago] ('example.com',)
+2025-05-04 18:07:36,500 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,506 - INFO - [cached since 147.2s ago] ('example2.com',)
+2025-05-04 18:07:36,516 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,521 - INFO - [cached since 147.2s ago] ('invalidhostname',)
+2025-05-04 18:07:36,526 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,536 - INFO - [cached since 147.2s ago] ('example3.com',)
+2025-05-04 18:07:36,541 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,545 - INFO - [cached since 147.2s ago] ('example4.com',)
+2025-05-04 18:07:36,550 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,561 - INFO - [cached since 147.3s ago] ('example.com',)
+2025-05-04 18:07:36,563 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:07:36,570 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:07:36,576 - INFO - [cached since 146.9s ago] ('example.com', 'A')
+2025-05-04 18:07:36,590 - ERROR - No records found for example.com with type A
+2025-05-04 18:07:36,592 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,594 - INFO - [cached since 147.3s ago] ('example5.com',)
+2025-05-04 18:07:36,612 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:36,619 - INFO - [cached since 147.3s ago] ('example6.com',)
+2025-05-04 18:07:36,624 - INFO - COMMIT
+2025-05-04 18:07:37,414 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:07:37,415 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:07:37,417 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:07:37,420 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:37,422 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:07:37,424 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:07:37,427 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:37,428 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:07:37,430 - DEBUG - Calling on_part_data with data[145:828]
+2025-05-04 18:07:37,432 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:37,433 - DEBUG - Calling on_part_data with data[830:1144]
+2025-05-04 18:07:37,439 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:37,480 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:07:37,503 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:37,512 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:07:37,517 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:37,521 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:07:37,524 - DEBUG - Calling on_end with no data
+2025-05-04 18:07:37,528 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:07:37,532 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:07:37,540 - INFO - BEGIN (implicit)
+2025-05-04 18:07:37,553 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,557 - INFO - [cached since 148.3s ago] ('example.com',)
+2025-05-04 18:07:37,561 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,575 - INFO - [cached since 148.3s ago] ('example2.com',)
+2025-05-04 18:07:37,581 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,587 - INFO - [cached since 148.3s ago] ('invalidhostname',)
+2025-05-04 18:07:37,593 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,606 - INFO - [cached since 148.3s ago] ('example3.com',)
+2025-05-04 18:07:37,610 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,620 - INFO - [cached since 148.3s ago] ('example4.com',)
+2025-05-04 18:07:37,624 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,647 - INFO - [cached since 148.3s ago] ('example.com',)
+2025-05-04 18:07:37,659 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:07:37,660 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:07:37,677 - INFO - [cached since 148s ago] ('example.com', 'A')
+2025-05-04 18:07:37,680 - ERROR - No records found for example.com with type A
+2025-05-04 18:07:37,688 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,694 - INFO - [cached since 148.4s ago] ('example5.com',)
+2025-05-04 18:07:37,705 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:37,712 - INFO - [cached since 148.4s ago] ('example6.com',)
+2025-05-04 18:07:37,727 - INFO - COMMIT
+2025-05-04 18:07:44,462 - DEBUG - This is a debug message
+2025-05-04 18:07:44,463 - INFO - This is an info message
+2025-05-04 18:07:44,464 - WARNING - This is a warning message
+2025-05-04 18:07:44,466 - ERROR - This is an error message
+2025-05-04 18:07:44,471 - CRITICAL - This is a critical message
+2025-05-04 18:07:44,723 - INFO - select pg_catalog.version()
+2025-05-04 18:07:44,724 - INFO - [raw sql] ()
+2025-05-04 18:07:44,731 - INFO - select current_schema()
+2025-05-04 18:07:44,735 - INFO - [raw sql] ()
+2025-05-04 18:07:44,739 - INFO - show standard_conforming_strings
+2025-05-04 18:07:44,740 - INFO - [raw sql] ()
+2025-05-04 18:07:44,744 - INFO - BEGIN (implicit)
+2025-05-04 18:07:44,771 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:07:44,772 - INFO - [generated in 0.01111s] ()
+2025-05-04 18:07:44,812 - INFO - COMMIT
+2025-05-04 18:07:45,356 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:07:45,357 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:07:45,370 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:07:45,371 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:45,372 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:07:45,373 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:07:45,375 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:07:45,436 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:07:45,653 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 18:07:45,703 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:45,751 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:07:45,757 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:45,808 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:07:45,869 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:07:45,940 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:07:45,987 - DEBUG - Calling on_end with no data
+2025-05-04 18:07:45,993 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:07:46,001 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:07:46,053 - INFO - BEGIN (implicit)
+2025-05-04 18:07:46,188 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,225 - INFO - [generated in 0.03794s] ('example.com',)
+2025-05-04 18:07:46,240 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,285 - INFO - [cached since 0.09787s ago] ('example2.com',)
+2025-05-04 18:07:46,307 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,323 - INFO - [cached since 0.1356s ago] ('invalidhostname',)
+2025-05-04 18:07:46,328 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,337 - INFO - [cached since 0.1496s ago] ('example3.com',)
+2025-05-04 18:07:46,343 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,491 - INFO - [cached since 0.304s ago] ('example4.com',)
+2025-05-04 18:07:46,539 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,569 - INFO - [cached since 0.3814s ago] ('example.com',)
+2025-05-04 18:07:46,586 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:07:46,604 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:07:46,616 - INFO - [generated in 0.01232s] ('example.com', 'A')
+2025-05-04 18:07:46,624 - ERROR - No records found for example.com with type A
+2025-05-04 18:07:46,641 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,654 - INFO - [cached since 0.4662s ago] ('example5.com',)
+2025-05-04 18:07:46,674 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:07:46,688 - INFO - [cached since 0.501s ago] ('example6.com',)
+2025-05-04 18:07:46,710 - INFO - COMMIT
+2025-05-04 18:08:38,713 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:08:38,717 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:08:38,727 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:08:38,734 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:08:38,748 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:08:38,764 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:08:38,773 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:08:38,777 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:08:38,790 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 18:08:38,810 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:08:38,814 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:08:38,827 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:08:38,842 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:08:38,845 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:08:38,849 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:08:38,860 - DEBUG - Calling on_end with no data
+2025-05-04 18:08:38,867 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:08:38,883 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:08:38,896 - INFO - BEGIN (implicit)
+2025-05-04 18:08:38,925 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:38,932 - INFO - [cached since 52.75s ago] ('example.com',)
+2025-05-04 18:08:38,944 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:38,948 - INFO - [cached since 52.77s ago] ('example2.com',)
+2025-05-04 18:08:38,959 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:38,961 - INFO - [cached since 52.78s ago] ('invalidhostname',)
+2025-05-04 18:08:38,968 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:38,988 - INFO - [cached since 52.81s ago] ('example3.com',)
+2025-05-04 18:08:39,015 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:39,034 - INFO - [cached since 52.85s ago] ('example4.com',)
+2025-05-04 18:08:39,052 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:39,066 - INFO - [cached since 52.88s ago] ('example.com',)
+2025-05-04 18:08:39,099 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:08:39,123 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:08:39,137 - INFO - [cached since 52.54s ago] ('example.com', 'A')
+2025-05-04 18:08:39,149 - ERROR - No records found for example.com with type A
+2025-05-04 18:08:39,162 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:39,208 - INFO - [cached since 53.03s ago] ('example5.com',)
+2025-05-04 18:08:39,315 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:39,443 - INFO - [cached since 53.26s ago] ('example6.com',)
+2025-05-04 18:08:39,500 - INFO - COMMIT
+2025-05-04 18:08:49,497 - DEBUG - This is a debug message
+2025-05-04 18:08:49,498 - INFO - This is an info message
+2025-05-04 18:08:49,498 - WARNING - This is a warning message
+2025-05-04 18:08:49,499 - ERROR - This is an error message
+2025-05-04 18:08:49,501 - CRITICAL - This is a critical message
+2025-05-04 18:08:49,572 - DEBUG - Calling on_part_begin with no data
+2025-05-04 18:08:49,573 - DEBUG - Calling on_header_field with data[42:61]
+2025-05-04 18:08:49,574 - DEBUG - Calling on_header_value with data[63:109]
+2025-05-04 18:08:49,575 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:08:49,578 - DEBUG - Calling on_header_field with data[111:123]
+2025-05-04 18:08:49,579 - DEBUG - Calling on_header_value with data[125:141]
+2025-05-04 18:08:49,581 - DEBUG - Calling on_header_end with no data
+2025-05-04 18:08:49,584 - DEBUG - Calling on_headers_finished with no data
+2025-05-04 18:08:49,586 - DEBUG - Calling on_part_data with data[145:1144]
+2025-05-04 18:08:49,590 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:08:49,591 - DEBUG - Calling on_part_data with data[1146:1149]
+2025-05-04 18:08:49,593 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:08:49,596 - DEBUG - Calling on_part_data with data[1151:1152]
+2025-05-04 18:08:49,598 - DEBUG - Calling on_part_data with data[0:2]
+2025-05-04 18:08:49,600 - DEBUG - Calling on_part_end with no data
+2025-05-04 18:08:49,618 - DEBUG - Calling on_end with no data
+2025-05-04 18:08:49,622 - INFO - Raw file contents: b'[\r\n  {\r\n    "hostname": "example.com",\r\n    "type": "A",\r\n    "value": ["192.168.1.1"],\r\n    "ttl_seconds": 3600\r\n  },\r\n  {\r\n    "hostname": "example2.com",\r\n    "type": "CNAME",\r\n    "value": "exampl'...
+2025-05-04 18:08:49,625 - INFO - Cleaned file contents: [
+  {
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3...
+2025-05-04 18:08:49,840 - INFO - select pg_catalog.version()
+2025-05-04 18:08:49,841 - INFO - [raw sql] ()
+2025-05-04 18:08:49,848 - INFO - select current_schema()
+2025-05-04 18:08:49,849 - INFO - [raw sql] ()
+2025-05-04 18:08:49,858 - INFO - show standard_conforming_strings
+2025-05-04 18:08:49,859 - INFO - [raw sql] ()
+2025-05-04 18:08:49,864 - INFO - BEGIN (implicit)
+2025-05-04 18:08:49,877 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:08:49,881 - INFO - [generated in 0.00444s] ()
+2025-05-04 18:08:49,889 - INFO - BEGIN (implicit)
+2025-05-04 18:08:49,905 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:49,907 - INFO - [generated in 0.00188s] ('example.com',)
+2025-05-04 18:08:49,939 - INFO - COMMIT
+2025-05-04 18:08:49,952 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:49,955 - INFO - [cached since 0.04985s ago] ('example2.com',)
+2025-05-04 18:08:49,959 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:49,963 - INFO - [cached since 0.05815s ago] ('invalidhostname',)
+2025-05-04 18:08:49,976 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:49,983 - INFO - [cached since 0.07837s ago] ('example3.com',)
+2025-05-04 18:08:49,988 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:50,003 - INFO - [cached since 0.09817s ago] ('example4.com',)
+2025-05-04 18:08:50,007 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:50,019 - INFO - [cached since 0.114s ago] ('example.com',)
+2025-05-04 18:08:50,023 - INFO - Attempting to delete record for example.com of type A with value 192.168.1.1
+2025-05-04 18:08:50,028 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:08:50,032 - INFO - [generated in 0.00422s] ('example.com', 'A')
+2025-05-04 18:08:50,041 - ERROR - No records found for example.com with type A
+2025-05-04 18:08:50,046 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:50,050 - INFO - [cached since 0.1448s ago] ('example5.com',)
+2025-05-04 18:08:50,056 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:08:50,058 - INFO - [cached since 0.1535s ago] ('example6.com',)
+2025-05-04 18:08:50,068 - INFO - COMMIT
+2025-05-04 18:09:49,941 - INFO - BEGIN (implicit)
+2025-05-04 18:09:50,021 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:09:50,162 - INFO - [cached since 60.29s ago] ()
+2025-05-04 18:09:50,368 - INFO - COMMIT
+2025-05-04 18:10:12,684 - DEBUG - Received request to add record for hostname: example.com
+2025-05-04 18:10:12,693 - INFO - BEGIN (implicit)
+2025-05-04 18:10:12,696 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR
+2025-05-04 18:10:12,716 - INFO - [cached since 82.82s ago] ('example.com',)
+2025-05-04 18:10:12,726 - INFO - INSERT INTO dns_records (hostname, type, value, timestamp_created, ttl_seconds) VALUES ($1::VARCHAR, $2::recordtype, $3::JSON, $4::TIMESTAMP WITHOUT TIME ZONE, $5::INTEGER) RETURNING dns_records.id
+2025-05-04 18:10:12,752 - INFO - [generated in 0.02599s] ('example.com', 'A', '"[\\"192.168.1.1\\"]"', datetime.datetime(2025, 5, 4, 18, 10, 12, 723026), 3600)
+2025-05-04 18:10:12,762 - INFO - COMMIT
+2025-05-04 18:10:12,833 - INFO - Record added for example.com
+2025-05-04 18:10:50,503 - INFO - BEGIN (implicit)
+2025-05-04 18:10:50,504 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:10:50,506 - INFO - [cached since 120.6s ago] ()
+2025-05-04 18:10:50,510 - INFO - COMMIT
+2025-05-04 18:11:50,508 - INFO - BEGIN (implicit)
+2025-05-04 18:11:50,511 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:11:50,513 - INFO - [cached since 180.7s ago] ()
+2025-05-04 18:11:50,519 - INFO - COMMIT
+2025-05-04 18:12:50,525 - INFO - BEGIN (implicit)
+2025-05-04 18:12:50,526 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:12:50,528 - INFO - [cached since 240.7s ago] ()
+2025-05-04 18:12:50,533 - INFO - COMMIT
+2025-05-04 18:13:50,536 - INFO - BEGIN (implicit)
+2025-05-04 18:13:50,537 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:13:50,540 - INFO - [cached since 300.7s ago] ()
+2025-05-04 18:13:50,544 - INFO - COMMIT
+2025-05-04 18:14:50,547 - INFO - BEGIN (implicit)
+2025-05-04 18:14:50,549 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:14:50,550 - INFO - [cached since 360.7s ago] ()
+2025-05-04 18:14:50,553 - INFO - COMMIT
+2025-05-04 18:15:50,556 - INFO - BEGIN (implicit)
+2025-05-04 18:15:50,557 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:15:50,559 - INFO - [cached since 420.7s ago] ()
+2025-05-04 18:15:50,564 - INFO - COMMIT
+2025-05-04 18:16:50,567 - INFO - BEGIN (implicit)
+2025-05-04 18:16:50,568 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:16:50,570 - INFO - [cached since 480.7s ago] ()
+2025-05-04 18:16:50,573 - INFO - COMMIT
+2025-05-04 18:17:50,584 - INFO - BEGIN (implicit)
+2025-05-04 18:17:50,585 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:17:50,587 - INFO - [cached since 540.7s ago] ()
+2025-05-04 18:17:50,595 - INFO - COMMIT
+2025-05-04 18:18:50,601 - INFO - BEGIN (implicit)
+2025-05-04 18:18:50,606 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:18:50,614 - INFO - [cached since 600.8s ago] ()
+2025-05-04 18:18:50,629 - INFO - COMMIT
+2025-05-04 18:19:50,633 - INFO - BEGIN (implicit)
+2025-05-04 18:19:50,634 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:19:50,635 - INFO - [cached since 660.8s ago] ()
+2025-05-04 18:19:50,637 - INFO - COMMIT
+2025-05-04 18:20:50,640 - INFO - BEGIN (implicit)
+2025-05-04 18:20:50,642 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:20:50,643 - INFO - [cached since 720.8s ago] ()
+2025-05-04 18:20:50,646 - INFO - COMMIT
+2025-05-04 18:21:50,651 - INFO - BEGIN (implicit)
+2025-05-04 18:21:50,652 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:21:50,653 - INFO - [cached since 780.8s ago] ()
+2025-05-04 18:21:50,658 - INFO - COMMIT
+2025-05-04 18:22:50,663 - INFO - BEGIN (implicit)
+2025-05-04 18:22:50,665 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:22:50,666 - INFO - [cached since 840.8s ago] ()
+2025-05-04 18:22:50,670 - INFO - COMMIT
+2025-05-04 18:23:50,676 - INFO - BEGIN (implicit)
+2025-05-04 18:23:50,677 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:23:50,683 - INFO - [cached since 900.8s ago] ()
+2025-05-04 18:23:50,686 - INFO - COMMIT
+2025-05-04 18:24:50,690 - INFO - BEGIN (implicit)
+2025-05-04 18:24:50,691 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:24:50,693 - INFO - [cached since 960.8s ago] ()
+2025-05-04 18:24:50,696 - INFO - COMMIT
+2025-05-04 18:25:50,700 - INFO - BEGIN (implicit)
+2025-05-04 18:25:50,701 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:25:50,703 - INFO - [cached since 1021s ago] ()
+2025-05-04 18:25:50,706 - INFO - COMMIT
+2025-05-04 18:26:35,058 - INFO - Attempting to delete record for ed.vv of type RecordType.A with value 12676.34.33..21
+2025-05-04 18:26:35,061 - INFO - BEGIN (implicit)
+2025-05-04 18:26:35,073 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records 
+WHERE dns_records.hostname = $1::VARCHAR AND dns_records.type = $2::recordtype
+2025-05-04 18:26:35,079 - INFO - [cached since 1065s ago] ('ed.vv', 'A')
+2025-05-04 18:26:35,112 - ERROR - No records found for ed.vv with type RecordType.A
+2025-05-04 18:26:35,121 - INFO - ROLLBACK
+2025-05-04 18:26:50,709 - INFO - BEGIN (implicit)
+2025-05-04 18:26:50,710 - INFO - SELECT dns_records.hostname, dns_records.type, dns_records.value, dns_records.timestamp_created, dns_records.ttl_seconds, dns_records.id 
+FROM dns_records
+2025-05-04 18:26:50,711 - INFO - [cached since 1081s ago] ()
+2025-05-04 18:26:50,715 - INFO - COMMIT

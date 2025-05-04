@@ -9,6 +9,28 @@ from typing import List
 from pydantic import BaseModel, Field, IPvAnyAddress, validator
 from app.core.errors import ErrorCode, raise_error
 import json
+import logging
+
+logger = logging.getLogger(__name__)
+
+async def check_for_duplicate_records(existing_records, record):
+    """Check if a duplicate record already exists."""
+    for existing in existing_records:
+        logger.debug(f"Existing Record: {existing.type}, New Record: {record.type}")
+        
+        if existing.type.value in [RecordType.A.value, RecordType.AAAA.value] and record.type == existing.type.value:
+            existing_values = json.loads(existing.value)
+            new_values = [str(ip) for ip in record.value]
+            logger.debug(f"Existing values: {existing_values}, New values: {new_values}")
+            
+            intersection = set(existing_values).intersection(set(new_values))
+            if intersection:
+                logger.error(f"Duplicate record found for {record.hostname}")
+                raise_error(ErrorCode.DUPLICATE_RECORD, status_code=409)
+
+        elif existing.type != record.type:
+            logger.error(f"Duplicate record type for {record.hostname}")
+            raise_error(ErrorCode.DUPLICATE_RECORD, status_code=409)
 
 def validate_dns_record_type_conflict(new_type: RecordType, existing: List[DNSRecord]):
     if new_type == RecordType.A:
