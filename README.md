@@ -129,34 +129,92 @@ Contains unit tests for adding, deleting, and resolving records, including edge 
 git clone https://github.com/yourusername/mini-dns-service.git
 cd mini-dns-service
 
-### Step 2: Install Dependencies
-Install the required dependencies:
+### Step 2: I have given my .env file as well. You can use it or change it accordingly. For now haven't put it in github secrets.
 
-pip install -r requirements.txt
-
-### Step 3: Set Up Environment Variables
-Make sure to create a .env file with the following content:
-
-API_KEY=your_api_key_here
-DB_URL=postgresql://username:password@localhost/dns_db
-REDIS_URL=redis://localhost:6379/0
-
-### Step 4: Run the Application with Docker
+### Step 3: Run the Application with Docker
 To build and run the service in Docker:
 
 docker-compose build
 docker-compose up
-To view PostgreSQL:
 
+To view PostgreSQL:
 docker exec -it mini-dns-db-1 psql -U postgres -d dns_db
-### Step 5: Run Tests
+### Step 4: Run Tests
 Run unit tests to check functionality:
 
 pytest tests/test_db.py
 Note: Run tests one by one to avoid triggering rate limits (429 error).
+### Step 5: To view application:
+Check localhost:8000/docs 
+You can view all the api's there and you can check the functionalities one by one.
+Important Note:
+i have used a list of strings as input for A/AAAA records,
+hence some examples are as follows:
+{
+    "hostname": "example.com",
+    "type": "A",
+    "value": ["192.168.1.1"],
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example2.com",
+    "type": "CNAME",
+    "value": "example.com",
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "invalidhostname",
+    "type": "A",
+    "value": ["999.999.999.999"],  
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example3.com",
+    "type": "MX",
+    "value": {
+      "priority": 10,
+      "host": "mail.example3.com"
+    },
+    "ttl_seconds": 3600
+  },
+  {
+    "hostname": "example4.com",
+    "type": "A",
+    "value": ["192.168.1.2"],
+    "ttl_seconds": 3600
+  },
+  {
+    "action": "delete",
+    "hostname": "example.com",
+    "type": "A",
+    "value": "192.168.1.1"
+  },
+  {
+    "hostname": "example5.com",
+    "type": "TXT",
+    "value": ["v=spf1 include:_spf.example.com ~all"],
+    "ttl_seconds": 3600
+  },
+  //Invalid example
+  {
+    "hostname": "example6.com",
+    "type": "A",
+    "value": ["192.168.1.3"] 
+  }
+
+Hence while adding an AAAA or A record don't forget the [] in value column.
+Also while deleting you don't have to give [] just a string of one IP address works, because for A/AAAA records one record can have multiple IP address hence if you give one Ip address, it deletes just that one from the bulk list if it has more than one.
 
 ### Additional Features
-Bulk Import/Export: Allows importing and exporting DNS records in bulk.
+Bulk Import/Export: Allows importing and exporting DNS records in bulk.Just ensure you mention action as "delete" for deleting a record:
+like this:
+  {
+    "action": "delete",
+    "hostname": "example.com",
+    "type": "A",
+    "value": "192.168.1.1"
+  }
+and a proper valid json file.
 
 TTL Expiry: Periodically cleans up expired records using FastAPI's async tasks.
 
